@@ -9,7 +9,7 @@ const config = {
   title: 'My Second Brain',
   tagline: '',
   url: 'https://whoisltd.me',
-  baseUrl: '/my-second-brain/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
