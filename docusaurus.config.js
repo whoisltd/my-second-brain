@@ -59,7 +59,7 @@ const config = {
       navbar: {
         title: 'My Second Brain',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'My Second Brain Logo',
           src: 'img/brain.svg',
         },
         items: [
@@ -67,7 +67,7 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Tutorial',
+            label: 'All my knowledge',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
@@ -84,7 +84,7 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'All my knowledge',
                 to: '/docs/intro',
               },
             ],
