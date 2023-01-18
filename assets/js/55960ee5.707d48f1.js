@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_second_brain=self.webpackChunkmy_second_brain||[]).push([[4121],{8070:e=>{e.exports=JSON.parse('[{"label":"statics","permalink":"/docs/tags/statics","count":1},{"label":"machine-learning","permalink":"/docs/tags/machine-learning","count":1},{"label":"concept","permalink":"/docs/tags/concept","count":1}]')}}]);
