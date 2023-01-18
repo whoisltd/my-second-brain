@@ -4,32 +4,32 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'About me',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+       I am Dat Le, an R&D engineer who loves to work on new technologies. 
+       A simple human being who loves to learn and share knowledge. 
+       I am a big fan of open source and always looking for new ways to contribute to the community.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Some of my personal favorites',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        I love playing trivia games, chess, sudoku, mines(i'm the best in this game, LOL),...
+        I also love read several book genres such as science & discovery books, history, and detective & science fiction novels
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'About my second brain',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        This is my second brain, a place where I store all my knowledge and share it with the world.
       </>
     ),
   },
