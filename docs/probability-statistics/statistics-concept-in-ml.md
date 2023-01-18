@@ -5,7 +5,7 @@ authors: [whoisltd]
 tags: [statics, machine-learning, concept]
 sidebar_position: 1
 ---
-Thống kê là một phần quan trọng không thể thiếu trong machine learning. Thống kê giúp ta có thể hiểu được bộ dữ liệu của mình. Dưới đây là một vài khái niệm mình đã tìm hiểu và lưu lại. ![Quantile](./Iqr_with_quantile.png)
+Thống kê là một phần quan trọng không thể thiếu trong machine learning. Thống kê giúp ta có thể hiểu được bộ dữ liệu của mình. Dưới đây là một vài khái niệm mình đã tìm hiểu và lưu lại. ![Quantile](./img/Iqr_with_quantile.png)
 
 ## **Mô tả một tập dữ liệu**
 
