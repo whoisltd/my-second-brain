@@ -1,6 +1,6 @@
 ---
 slug: Một số khái niệm cơ bản về thống kê trong Machine learning
-title: Một số khái niệm cơ bản về thông kê trong Machine Learning
+title: Một số khái niệm cơ bản về thống kê trong Machine Learning
 authors: [whoisltd]
 tags: [statics, machine-learning, concept]
 sidebar_position: 1
