@@ -18,3 +18,7 @@ sidebar_position: 1
 4. **Mortgage borrowers**
 
 5. Doanh nghiệp Cổ phần Thông tin tín dụng Việt Nam PCB (Viết tắt của Private Credit Bureau)
+
+6. NTB(New To Bank): Khách hàng mới
+
+7.ETB(Existing To Bank): Khách hàng cũ
