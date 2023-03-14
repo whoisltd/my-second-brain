@@ -21,4 +21,8 @@ sidebar_position: 1
 
 6. NTB(New To Bank): Khách hàng mới
 
-7.ETB(Existing To Bank): Khách hàng cũ
+7. ETB(Existing To Bank): Khách hàng cũ
+
+8. Current Account (tài khoảng vãng lai): là một bộ phận cấu thành lên cán cân thanh toán quốc tế. Ghi chép những giao dịch về hàng hóa, dịch vụ và thu nhập đầu tư.
+9. Merchant Account (tài khoản người bán): Là một loại tài khoản như ngân hàng được thiết lập đặc biệt cho mục đích kinh doanh và cho phép các công ty thực hiện và chấp nhận thanh toán.
+10. CASA (Current Account Savings Account) tài khoản tiết kiệm, gửi tiền không kỳ hạn
