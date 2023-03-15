@@ -54,3 +54,30 @@ Tạo thói quen cần phải làm nó là việc hiển nhiên và cần sự r
 
 ### Môi trường là tác nhân quan trọng
 
+Luôn luôn đặt vật cần sử dụng tại đúng khu vực ví trí khiến ta dễ chú ý đến chúng. Thiết kế lại môi trường của bạn. 
+
+Tạo một lịch trình mới ở một nơi mới. Yeh, i think its absolutely important!!! (Nếu không thể thay đổi được môi trường mới hoàn toàn, tái cấu trúc nó)
+
+Trộn lẫn bối cảnh -> trộn lẫn thói quen. Tạo không gian riêng cho mỗi thói quen if u can.
+
+Người giỏi trong việc kiểm soát bản thân ít dành thời gian hơn cho những việc có tính kích thích, lôi kéo. **Tránh cám dỗ thì dễ dàng hơn là kháng cự nó** *yeh*
+
+Thói quen xấu là quá trình tự nuôi dưỡng quá trình :v Ex: Xem TV làm ta cảm thấy kém linh hoạt, ù lì, càng xem phim nhiều hơn vì không có năng lượng để làm việc khác ? :v
+
+### Thật khó để duy trì thói quen tích cực trong một môi trường tiêu cực
+
+Loại bỏ tác nhân tạo ra thói quen. Ex: không làm được gì ra hồn trong vài giờ, vứt điện thoại ra phòng khác :slightly_smiling_face:, 
+Luôn không thấy hài lòng với những gì mình đang có, bỏ theo dõi các tài khoản mạng xã hội tạo cho mình cảm giác ghen tị.
+
+Khiến nó thói quen xấu trở lên vô hình. Loại bỏ tác nhân đơn lẻ có thể khiến thói quen bị xóa xổ luôn =)). *I think its true, Ex: Tối đi làm về tôi mở điện thoại ra thấy game kiểu gì cũng vào làm ván, nhưng khi xóa đi thì một thời gian sau sẽ quên luôn =)) Nhưng vô tình thấy quảng cáo hay một ai đó chơi tự game đó tôi lại muốn chơi lại :v*
+
+### Làm thế nào để khiến một thói quen tốt trở lên hấp dẫn không cưỡng lại được????
+
+
+
+
+
+
+
+
+
