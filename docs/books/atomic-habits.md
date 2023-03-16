@@ -73,7 +73,29 @@ Khiến nó thói quen xấu trở lên vô hình. Loại bỏ tác nhân đơn 
 
 ### Làm thế nào để khiến một thói quen tốt trở lên hấp dẫn không cưỡng lại được????
 
+...
 
+### Nguyên tắc, chuẩn mực xã hội
+
+Thói quen có thể được học, hình thành thông qua bắt chước ???
+
+Con người là sinh vật bầy đàn luôn muốn hòa nhập, tương tác, nhận được sự tôn trọng, chấp nhận của đồng loại.
+
+1. Nhóm thân thiết
+
+   *Khi bạn tôi hút thuốc lá tôi cũng muốn thử nó :),.. or khi họ sử dụng một cử chỉ, hành động bắt trend nào đó :clown_face: yeh có lẽ tôi cũng bắt chước thôi =)*
+
+   Càng thân thiết với ai đó, ta sẽ càng dễ bắt chước một vài thói quen của họ. Bạn bè, người thân là một áp lực vô hình thúc đẩy người khác sống theo hướng của họ.
+
+   Động lực được duy trì tốt hơn khi có cảm giác được thuộc về một hội or nhóm nào đó! :o
+
+2. Nhóm số đông
+
+   Thói quen đôi khi cũng bị ảnh hưởng bởi một đám đông.
+
+3. Nhóm những người có ảnh hưởng
+
+   
 
 
 
