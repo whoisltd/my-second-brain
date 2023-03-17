@@ -29,14 +29,6 @@ const config = {
 
   presets: [
     [
-      '@docusaurus/preset-classic',
-      {
-        gtag: {
-          trackingID: 'G-KZ3HD5HXCE'
-        },
-      },
-    ],
-    [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
@@ -58,6 +50,12 @@ const config = {
           customCss: require.resolve('./src/css/custom.css'),
         },
       }),
+      '@docusaurus/preset-classic',
+      {
+        gtag: {
+          trackingID: 'G-KZ3HD5HXCE'
+        },
+      },
     ],
   ],
 
@@ -77,7 +75,7 @@ const config = {
             position: 'left',
             label: 'All my knowledge',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/whoisltd/my-second-brain',
             label: 'GitHub',
