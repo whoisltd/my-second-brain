@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_second_brain=self.webpackChunkmy_second_brain||[]).push([[8191],{3999:o=>{o.exports=JSON.parse('{"title":"Books","description":"What I read","slug":"/category/books","permalink":"/docs/category/books","navigation":{"next":{"title":"Atomic Habits","permalink":"/docs/books/Atomic Habits"}}}')}}]);
