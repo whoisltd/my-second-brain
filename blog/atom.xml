@@ -2,11 +2,41 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://whoisltd.me/blog</id>
     <title>My Second Brain Blog</title>
-    <updated>2022-01-17T00:00:00.000Z</updated>
+    <updated>2023-03-17T17:01:24.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://whoisltd.me/blog"/>
     <subtitle>My Second Brain Blog</subtitle>
     <icon>https://whoisltd.me/img/brain.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Data Labeling]]></title>
+        <id>/Data Labeling</id>
+        <link href="https://whoisltd.me/blog/Data Labeling"/>
+        <updated>2023-03-17T17:01:24.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[data review]]></title>
+        <id>/data review</id>
+        <link href="https://whoisltd.me/blog/data review"/>
+        <updated>2023-03-17T17:01:24.000Z</updated>
+        <summary type="html"><![CDATA[data review]]></summary>
+        <content type="html"><![CDATA[<p><strong>data review</strong></p><p>Exploratory Data Analysis to generate insights about the available data sets</p><p> data analysis and statistics: Describe data about min/max value, median, standard deviation, etc</p><p>correlation analysis between variables</p><p><strong>Data Labeling</strong>:</p><p>with no default data(no label). Need to assume labels for the dataset. Label can be assume by some rule on data. Example: A customer &gt; 30 year old and have large number of average monthly transactions could be considered good, otherwise bad. This process needs people who understand the data to help</p><p><strong>Data cleansing</strong></p><p>handle missing value</p><p>Correcting wrong Representations</p><p>Correcting wrong Values</p><p><strong>Feature Selection and Engineering</strong></p><p>feature selection</p><p>standardization / normalization</p><p>transformations</p><p>Model Validation</p>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[how to calculate credit score card]]></title>
+        <id>/how to calculate credit score card</id>
+        <link href="https://whoisltd.me/blog/how to calculate credit score card"/>
+        <updated>2023-03-17T17:01:24.000Z</updated>
+        <summary type="html"><![CDATA[Definition project parameters]]></summary>
+        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="definition-project-parameters">Definition project parameters<a class="hash-link" href="#definition-project-parameters" title="Direct link to heading">​</a></h3><p>Inclusion/Exclustion rules</p><table><thead><tr><th><strong>Rules</strong></th><th><strong>Note</strong></th></tr></thead><tbody><tr><td>Excluded invalid customer ID<br>Excluded N/A approval status</td><td>Remove trash application</td></tr><tr><td>Excluded fraud cases<br>Excluded Bad in next 3 months</td><td>Fraud related</td></tr><tr><td>Excluded Bad at T0 by PCB<br>Excluded Bad at T0 by TCB</td><td>Rejected cases for credit status at application</td></tr><tr><td>Excluded Approved casse but no performance in next 18 months</td><td>Inactive account (Revolving products)</td></tr><tr><td>Excluded Dream/Mobivi products<br>Excluded Passbook products<br>Excluded Household products</td><td>Substandard CC &amp; OD which had been closed since 2017<br>Low defaults (~0)<br>Not the target of this Scorecard</td></tr></tbody></table><p>Data Preparation</p>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[some-concept about banking and finance]]></title>
+        <id>/some-concept about banking and finance</id>
+        <link href="https://whoisltd.me/blog/some-concept about banking and finance"/>
+        <updated>2023-03-17T17:01:24.000Z</updated>
+        <summary type="html"><![CDATA[Một số khái niệm trong lĩnh vực tài chính ngân hàng]]></summary>
+        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="một-số-khái-niệm-trong-lĩnh-vực-tài-chính-ngân-hàng">Một số khái niệm trong lĩnh vực tài chính ngân hàng<a class="hash-link" href="#một-số-khái-niệm-trong-lĩnh-vực-tài-chính-ngân-hàng" title="Direct link to heading">​</a></h3><ol><li><p><strong>Nợ xấu(NPL(Non-Performing Loan) or Bad Debt)</strong>: khoản vay đã quá hạn trên 90 ngày mà không có khả năng hoàn trả.</p><p>Tỉ lệ nợ xấu = (Nợ xấu/ Tổng dư nợ) * 100%</p></li><li><p><strong>Tổng dư nợ(Debit)</strong>: số tiền người vay phải trả ngân hàng của giao dịch vay vốn trước đó.</p></li><li><p><strong>Ngày quá hạn(DPD(Day Past Due))</strong>: Số ngày nợ quá hạn</p></li><li><p><strong>Mortgage borrowers</strong></p></li><li><p>Doanh nghiệp Cổ phần Thông tin tín dụng Việt Nam PCB (Viết tắt của Private Credit Bureau)</p></li></ol>]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Một số khái niệm cơ bản về thông kê trong Machine Learning]]></title>
         <id>Một số khái niệm cơ bản về thống kê trong Machine learning</id>
