@@ -49,13 +49,10 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-      }),
-      '@docusaurus/preset-classic',
-      {
         gtag: {
           trackingID: 'G-KZ3HD5HXCE'
         },
-      },
+      }),
     ],
   ],
 
