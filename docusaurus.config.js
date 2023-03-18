@@ -37,14 +37,14 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/whoisltd/my-second-brain/blob/main/docs/',
+            'https://github.com/whoisltd/my-second-brain/blob/main/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/whoisltd/my-second-brain/blob/main/docs/',
+            'https://github.com/whoisltd/my-second-brain/blob/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
