@@ -22,7 +22,7 @@ Machine translation
 
 Conversational agent
 
-NLP task by difficulty:![image-20230329192740134](/home/whoisltd/.config/Typora/typora-user-images/image-20230329192740134.png)
+NLP task by difficulty:![image-20230329192740134](img/image-20230329192740134.png)
 
 Why is NPL challenging?
 
@@ -49,7 +49,7 @@ Ngôn ngữ con người mang sự mơ hồ, ý nghĩa phụ thuộc nhiều và
 - Cost
 - On-device deployment
 
-![image-20230329195115905](/home/whoisltd/.config/Typora/typora-user-images/image-20230329195115905.png)
+![image-20230329195115905](img/image-20230329195115905.png)
 
 Tốn tiền quá z trời.
 
@@ -59,13 +59,13 @@ Tối ưu mô hình quá có thể làm giảm nhiều độ chính xác.
 
 ### embedding + word2vec
 
-Giúp máy hiểu được ngôn ngữ : 
+Giúp máy hiểu được ngôn ngữ: 
 
 Giải thiết phân phối: 2 từ cũng ngữ cảnh khả năng cao giống nhau.
 
 Word Smilarity
 
-![image-20230329200210387](/home/whoisltd/.config/Typora/typora-user-images/image-20230329200210387.png)
+![image-20230329200210387](img/image-20230329200210387.png)
 
 Ý nghĩa của một từ( The meaning of word): xác định một từ dựa vào những từ xung quanh.
 
@@ -73,15 +73,15 @@ Mô hình một từ thành vector
 
 TF IDF, Word2vec
 
-![image-20230329201759398](/home/whoisltd/.config/Typora/typora-user-images/image-20230329201759398.png)
+![image-20230329201759398](img/image-20230329201759398.png)
 
 Word-vector: Mô hình hóa từ thành vector dựa trên số lần xuất hiện của từ trong văn bản
 
 Word-word Matrix: 
 
-![image-20230329202121623](/home/whoisltd/.config/Typora/typora-user-images/image-20230329202121623.png)
+![image-20230329202121623](img/image-20230329202121623.png)
 
-![image-20230329202607859](/home/whoisltd/.config/Typora/typora-user-images/image-20230329202607859.png)
+![image-20230329202607859](img/image-20230329202607859.png)
 
 ### Word2vec
 
@@ -89,11 +89,11 @@ How to build word2vec
 
 vector one hot
 
-![image-20230329202930194](/home/whoisltd/.config/Typora/typora-user-images/image-20230329202930194.png)
+![image-20230329202930194](img/image-20230329202930194.png)
 
 Mô hình CBOW(continuous Bag of words)
 
-![image-20230329203008078](/home/whoisltd/.config/Typora/typora-user-images/image-20230329203008078.png)
+![image-20230329203008078](img/image-20230329203008078.png)
 
 Lấy từ khỏi một câu làm nhãn.
 
@@ -107,7 +107,7 @@ Word2vec là static embedding(một từ sẽ là một vector cố định) kh�
 
 **Mô hình CBOW**
 
-![image-20230329203756092](/home/whoisltd/.config/Typora/typora-user-images/image-20230329203756092.png)
+![image-20230329203756092](img/image-20230329203756092.png)
 
 CBOW giống bài toán phân loại. Autoencoders tái tạo lại chính câu,...
 
@@ -121,11 +121,11 @@ Skip-gram ngược lại với CBOW
 
 Skip Gram : một từ bị thiếu dự đoán những từ xung quanh
 
-![image-20230330090130592](/home/whoisltd/.config/Typora/typora-user-images/image-20230330090130592.png)
+![image-20230330090130592](img/image-20230330090130592.png)
 
 **Word2Vec**
 
-![image-20230330090156720](/home/whoisltd/.config/Typora/typora-user-images/image-20230330090156720.png)
+![image-20230330090156720](img/image-20230330090156720.png)
 
 Các vector đã có ngữ nghĩa, quan hệ với nhau. Giúp máy có thể hiểu được sau khi train trên một lượng data đủ lớn.
 
@@ -133,7 +133,7 @@ Các vector đã có ngữ nghĩa, quan hệ với nhau. Giúp máy có thể hi
 
 Lấy vector onehot * W => vector embedding của mỗi từ
 
-![image-20230330090401169](/home/whoisltd/.config/Typora/typora-user-images/image-20230330090401169.png)
+![image-20230330090401169](img/image-20230330090401169.png)
 
 **Biểu diễn sâu**
 
