@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_second_brain=self.webpackChunkmy_second_brain||[]).push([[3997],{6862:s=>{s.exports=JSON.parse('{"label":"NLP","permalink":"/docs/tags/nlp","allTagsPath":"/docs/tags","count":1,"items":[{"id":"nlp/nlp","title":"NLP Basic Review","description":"NPL  Task","permalink":"/docs/nlp/NLP Basic Review"}]}')}}]);
