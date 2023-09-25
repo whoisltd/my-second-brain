@@ -13,6 +13,7 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/brain.ico',
+  themes: ['@docusaurus/theme-search-algolia'],
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -135,6 +136,26 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+      },
+      algolia: {
+        // The application ID provided by Algolia
+        appId: 'ZEOE50O63M',
+  
+        // Public API key: it is safe to commit it
+        apiKey: '568a4ca9d77faef37c00d7018ca2bffc',
+  
+        indexName: 'whoisltd',
+  
+        // Optional: see doc section below
+        contextualSearch: true,
+  
+        // Optional: Algolia search parameters
+        searchParameters: {},
+  
+        // Optional: path for search page that enabled by default (`false` to disable it)
+        searchPagePath: 'search',
+  
+        //... other Algolia params
       },
     }),
 };
