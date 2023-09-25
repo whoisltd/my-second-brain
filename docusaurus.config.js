@@ -13,7 +13,6 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/brain.ico',
-  themes: ['@docusaurus/theme-search-algolia'],
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
