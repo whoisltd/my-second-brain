@@ -52,6 +52,12 @@ const config = {
         gtag: {
           trackingID: 'G-KZ3HD5HXCE'
         },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+        },
       }),
     ],
   ],
@@ -59,6 +65,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [{name: 'keywords', content: 'everything-i-know, whoisltd, blog'}],
       navbar: {
         title: 'My Second Brain',
         logo: {
