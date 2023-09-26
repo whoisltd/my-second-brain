@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_second_brain=self.webpackChunkmy_second_brain||[]).push([[504],{339:a=>{a.exports=JSON.parse('{"label":"programming","permalink":"/docs/tags/programming","allTagsPath":"/docs/tags","count":1,"items":[{"id":"big-data/spark","title":"Spark","description":"Spark l\xe0 g\xec?","permalink":"/docs/big-data/what i know a bout spark"}]}')}}]);
