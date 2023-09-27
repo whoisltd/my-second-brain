@@ -108,7 +108,7 @@ const config = {
               },
               {
                 label: 'Facebook',
-                href: 'https://facebook.com/invite/whoisltd',
+                href: 'https://facebook.com/whoisltd',
               },
               {
                 label: 'Goodreads',
