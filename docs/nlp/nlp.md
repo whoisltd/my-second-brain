@@ -162,39 +162,39 @@ N-Grams
 
 Unigram, Bigram, Trigram, 4-gram
 
-![image-20230401234141595](/home/whoisltd/.config/Typora/typora-user-images/image-20230401234141595.png)
+![image-20230401234141595](img/image-20230401234141595.png)
 
 **Giả thiết Markov:** Xác suất xảy ra một từ khi cho lịch sử sẽ bằng xác suất xảy ra từ đó khi cho n-1 từ trước nó.
 
 P(vui|Thông qua khảo sát của những tổ chức nghiên cứu, học Tiếng Việt rất) = (vui| học Tiếng Việt rất)
 
-![image-20230401234205114](/home/whoisltd/.config/Typora/typora-user-images/image-20230401234205114.png)
+![image-20230401234205114](img/image-20230401234205114.png)
 
 Điểm yếu của N-grams language model
 
-![image-20230401234353947](/home/whoisltd/.config/Typora/typora-user-images/image-20230401234353947.png)
+![image-20230401234353947](img/image-20230401234353947.png)
 
-![image-20230401234414594](/home/whoisltd/.config/Typora/typora-user-images/image-20230401234414594.png)
+![image-20230401234414594](img/image-20230401234414594.png)
 
 **Neural Language Models**
 
-![image-20230401234731425](/home/whoisltd/.config/Typora/typora-user-images/image-20230401234731425.png)
+![image-20230401234731425](img/image-20230401234731425.png)
 
 **RNN( Recurrent neural network)**
 
-![image-20230401235726007](/home/whoisltd/.config/Typora/typora-user-images/image-20230401235726007.png)
+![image-20230401235726007](img/image-20230401235726007.png)
 Ưu điểm của RNN
 
-![image-20230402000331289](/home/whoisltd/.config/Typora/typora-user-images/image-20230402000331289.png)
+![image-20230402000331289](img/image-20230402000331289.png)
 
 Nhược điểm của RNN
 
-![image-20230402000755237](/home/whoisltd/.config/Typora/typora-user-images/image-20230402000755237.png)
+![image-20230402000755237](img/image-20230402000755237.png)
 
 Mất mát sử dụng Teacher Forcing.
 
-![image-20230402002117923](/home/whoisltd/.config/Typora/typora-user-images/image-20230402002117923.png)
+![image-20230402002117923](img/image-20230402002117923.png)
 
 **Perplexity (PP)**
 
-![image-20230402002430491](/home/whoisltd/.config/Typora/typora-user-images/image-20230402002430491.png)
+![image-20230402002430491](img/image-20230402002430491.png)
