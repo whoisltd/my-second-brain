@@ -2,7 +2,7 @@
 slug: NLP Basic Review
 title: NLP Basic Review
 authors: [whoisltd]
-tags: [Deep-learning, NLP, Natural-language-processing]
+tags: [deep-learning, nlp, natural-language-processing]
 sidebar_position: 1
 ---
 
@@ -135,8 +135,66 @@ Lấy vector onehot * W => vector embedding của mỗi từ
 
 ![image-20230330090401169](img/image-20230330090401169.png)
 
-**Biểu diễn sâu**
+**Biểu diễn sâu( Deep Presentation**
 
 Điểm Yếu: 
 
-- Biểu diễn các từ vẫn còn yếu (fix embedding
+- Biểu diễn các từ vẫn còn yếu (shallow representation) (fix embedding)
+- Một số model không dùng Embedding chỉ giảm dưới 1% độ chính xác
+- THông tin word-level khó xác định phù hợp với bài toán cụ thể nào
+
+Giải quyết: Cần một biểu diễn mạnh/ động hơn ( thậm chí có thể thay đổi theo ngữ cảnh):
+
+- LSTM-based (ULMfit, ELMO)
+- Transformer-based (BERT, GPT)
+
+**Language Models**
+
+Được thiết kế với mục tiêu đo lường phân phối xác suất của các đơn vị ngôn ngữ (từ|chữ)
+
+Nhiệm vụ: Tính P(w|h) xác suất của một từ khi cho các từ trước đó (lịch sử)
+
+w: từ, h: lịch sử P("ơi|Việt nam đẹp lắm ta") = ??
+
+language model xuất hiện trong nhiều hệ thống khác nhau: đề xuất từ tiếp theo, máy dịch, sửa lỗi
+
+N-Grams
+
+Unigram, Bigram, Trigram, 4-gram
+
+![image-20230401234141595](/home/whoisltd/.config/Typora/typora-user-images/image-20230401234141595.png)
+
+**Giả thiết Markov:** Xác suất xảy ra một từ khi cho lịch sử sẽ bằng xác suất xảy ra từ đó khi cho n-1 từ trước nó.
+
+P(vui|Thông qua khảo sát của những tổ chức nghiên cứu, học Tiếng Việt rất) = (vui| học Tiếng Việt rất)
+
+![image-20230401234205114](/home/whoisltd/.config/Typora/typora-user-images/image-20230401234205114.png)
+
+Điểm yếu của N-grams language model
+
+![image-20230401234353947](/home/whoisltd/.config/Typora/typora-user-images/image-20230401234353947.png)
+
+![image-20230401234414594](/home/whoisltd/.config/Typora/typora-user-images/image-20230401234414594.png)
+
+**Neural Language Models**
+
+![image-20230401234731425](/home/whoisltd/.config/Typora/typora-user-images/image-20230401234731425.png)
+
+**RNN( Recurrent neural network)**
+
+![image-20230401235726007](/home/whoisltd/.config/Typora/typora-user-images/image-20230401235726007.png)
+Ưu điểm của RNN
+
+![image-20230402000331289](/home/whoisltd/.config/Typora/typora-user-images/image-20230402000331289.png)
+
+Nhược điểm của RNN
+
+![image-20230402000755237](/home/whoisltd/.config/Typora/typora-user-images/image-20230402000755237.png)
+
+Mất mát sử dụng Teacher Forcing.
+
+![image-20230402002117923](/home/whoisltd/.config/Typora/typora-user-images/image-20230402002117923.png)
+
+**Perplexity (PP)**
+
+![image-20230402002430491](/home/whoisltd/.config/Typora/typora-user-images/image-20230402002430491.png)

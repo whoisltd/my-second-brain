@@ -2,7 +2,7 @@
 slug: NLP for Question Answering
 title: NLP for Question Answering
 authors: [whoisltd]
-tags: [Deep-learning, NLP, Natural-language-processing, Question-answering]
+tags: [deep-learning, nlp, natural-language-processing, question-answering]
 sidebar_position: 2
 ---
 
