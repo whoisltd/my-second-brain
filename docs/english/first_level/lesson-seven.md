@@ -1,6 +1,6 @@
 ---
 slug: "Ls 7. The Present Tense"
-Title: "Ls 7. The Present Tense"
+title: "Ls 7. The Present Tense"
 authors: [whoisltd]
 tags: [myself, learn, english, language]
 sidebar_position: 7

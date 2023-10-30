@@ -1,6 +1,6 @@
 ---
 slug: "Ls 6. There"
-Title: "Ls 6. There"
+title: "Ls 6. There"
 authors: [whoisltd]
 tags: [myself, learn, english, language]
 sidebar_position: 6
