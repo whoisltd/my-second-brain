@@ -1,13 +1,12 @@
 ---
-slug: "Ls 7. The Present Tense"
-title: "Ls 7. The Present Tense"
+slug: "Ls 7-1. The Present Tense"
+title: "Ls 7-1. The Present Tense"
 authors: [whoisltd]
 tags: [myself, learn, english, language]
 sidebar_position: 7
-
 ---
 
-## Lesson Seven. The Present Tense
+## Lesson Seven-1. The Present Tense
 
 | **Singular** | **Plural** |
 | ------------ | ---------- |
