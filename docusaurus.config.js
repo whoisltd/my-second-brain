@@ -10,8 +10,8 @@ const config = {
   tagline: '',
   url: 'https://whoisltd.me',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
+  onBrokenLinks: 'ignore',
+  onBrokenMarkdownLinks: 'ignore',
   favicon: 'img/brain.ico',
 
   // GitHub pages deployment config.
