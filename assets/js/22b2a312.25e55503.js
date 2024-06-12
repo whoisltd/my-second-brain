@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_second_brain=self.webpackChunkmy_second_brain||[]).push([[4428],{1049:s=>{s.exports=JSON.parse('{"label":"statics","permalink":"/blog/tags/statics","allTagsPath":"/blog/tags","count":1}')}}]);
