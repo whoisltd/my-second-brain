@@ -16,7 +16,7 @@ To make a question in the present tense, use the helping verbs **do** or **does*
 | Do you walk?   | Do you walk?  |
 | Does he walk?  | Do they walk? |
 | Does she walk? |               |
-| Does it walks? |               |
+| Does it walk? |               |
 
 Example:
 

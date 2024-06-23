@@ -5,7 +5,6 @@ authors: [whoisltd]
 tags: [myself, learn, english, language]
 sidebar_position: 12
 ---
-
 ## Lesson Ten. Articles A / An / The
 
 | Singular | Plural |

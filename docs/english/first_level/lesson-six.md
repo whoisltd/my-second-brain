@@ -20,7 +20,7 @@ sidebar_position: 6
 The word "there" can be singular or plural. It depends on the words that follow it.
 
 - There <u>is</u> a **book** on the table (singular)
-- There <u>is</u> a **books** on the table (plural)
+- There <u>are</u> three **books** on the table (plural)
 
 When using "there" must think ahead to the noun that follows it. This noun is the subject. "These" is a *dummy* subject
 
