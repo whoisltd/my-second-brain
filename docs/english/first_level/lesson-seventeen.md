@@ -39,7 +39,7 @@ or "It's 5:50" (five fifty)
 
 | Question                                     | Answers                                  |
 | -------------------------------------------- | ---------------------------------------- |
-| What's today?<br>or<br>What day is it today? | Today's Tuesday, June 6.<br>(June sixth) |
+| What's today?<br/>or<br/>What day is it today? | Today's Tuesday, June 6.<br/>(June sixth) |
 | What's the date?                             | It's June 6. or It's the 6th of June     |
 There's a difference between "day" and "date"
 - day: Sunday, Monday, Tuesday, etc.

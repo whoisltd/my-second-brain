@@ -14,15 +14,15 @@ sidebar_position: 21
 
 | Count nouns use singular and plural verbs and pronouns                               | Non-count nouns use only singular verbs and pronouns. |
 | ------------------------------------------------------------------------------------ | ----------------------------------------------------- |
-| There is an apple (singular)<br>There are some apples (plural)                       | There is some fruit. (singular verb)                  |
-| I like that chair ("that" is singular)<br>She likes those chairs ("those" is plural) | I like that furniture                                 |
+| There is an apple (singular)<br/>There are some apples (plural)                       | There is some fruit. (singular verb)                  |
+| I like that chair ("that" is singular)<br/>She likes those chairs ("those" is plural) | I like that furniture                                 |
 | Apples taste good                                                                    | Fruit tastes good                                     |
 **Asking questions** for an amount or a number:
 
 | Count Nouns                                       | Noncount Nouns                                                  |
 | ------------------------------------------------- | --------------------------------------------------------------- |
-| How many chairs are there?                        | How much furniture is there?<br>There is a lot of turniture     |
-| How many cameras are there?<br>There's one camera | How much equipment is there?<br>There's a lot of video equiment |
+| How many chairs are there?                        | How much furniture is there?<br/>There is a lot of turniture     |
+| How many cameras are there?<br/>There's one camera | How much equipment is there?<br/>There's a lot of video equiment |
 Only count nouns can take a number:
 - There is one camera.
 - There are four cameras.
