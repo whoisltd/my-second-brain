@@ -10,28 +10,30 @@ tags:
   - english
 sidebar_position: 1
 ---
+
 ## Lesson 1. Do Present Tense
 
-| Singular     | Plural      |
-| ------------ | ----------- |
+| Singular | Plural  |
+| -------- | ------- |
 | I do     | We do   |
 | You do   | You do  |
-| He does  |             |
+| He does  |         |
 | She does | They do |
-| It does  |             |
+| It does  |         |
 
- The verb "do" can be used to make a statement:
- I do the laundry every weekend.
+The verb "do" can be used to make a statement:
+I do the laundry every weekend.
 
 But it is usually used to make the present tense or the past tense negative:
+
 - I don't have any money
 - He didn't go to the store yesterday.
-It's also used when making questions:
+  It's also used when making questions:
 - Do you know what time it is?
 - Does he have a coat?
-Statement: I wear glasses
-Negative: I don't see well without my glasses
-Question: Do you wear glasses?
+  Statement: I wear glasses
+  Negative: I don't see well without my glasses
+  Question: Do you wear glasses?
 
 Statement: You speak French
 Negative: You don't speak Chinese
