@@ -10,7 +10,6 @@ tags:
   - english
 sidebar_position: 23
 ---
-
 ## Lesson 23. Used to
 
 "Used to" describes activities in the past. Something was once true, but now the situation is different. Following "used to," the main verb is in the simple form:
@@ -18,7 +17,7 @@ Subject + used to + \_\_\_ (main verb)
 
 **Example:**
 
-- She sued to work as a waitress, but now she's working as a photographer
+- She used to work as a waitress, but now she's working as a photographer
 - Bill used to go out with Donna. Now he's going out with Cynthia
 - He used to be thin. Now he has a potbelly (used to be = was / were)
 - Her hair used to be green, and then she changed it to purple

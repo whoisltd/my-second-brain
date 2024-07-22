@@ -10,7 +10,6 @@ tags:
   - english
 sidebar_position: 24
 ---
-
 ## Lesson 24. (be) used to
 
 "(be) used to" indicates that someone has adapted to a new situation. The situation was difficult or strange or awkward in some way, but then every thing was okay. You can also use the verb "get" in place of the verb "be" -- _get used to_
@@ -38,6 +37,6 @@ Note: you can use "get" in place of "be"
 
 He wasn't used to being in prison at first, but he get used to it after living there for a few years.
 
-She's very rich. She;s used to going to parties and having other people do work for her.
+She's very rich. She's used to going to parties and having other people do work for her.
 
 They're used to living in a cold state like Minnesota. In fact, they love it!
