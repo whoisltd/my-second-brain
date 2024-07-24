@@ -10,6 +10,7 @@ tags:
   - english
 sidebar_position: 2
 ---
+
 ## Lesson 2. have - present and past tense
 
 "**Have**" is a verb that has the forms 'has', 'having', and 'had' with **have** being the base form. It can be either a helping verb or a main verb.
@@ -24,7 +25,6 @@ We have class tomorrow
 
 You use this word to talk about possessing something. Here's the breakdown of how to use it for different subjects in the present tense:
 
-
 | Present Tense |           |
 | ------------- | --------- |
 | I have        | We have   |
@@ -32,7 +32,8 @@ You use this word to talk about possessing something. Here's the breakdown of ho
 | He has        | They have |
 | She has       |           |
 | It has        |           |
-Talking about something you owned in the past? With this word, it's nice and easy. Just drop the ve/s and add a *d*:
+
+Talking about something you owned in the past? With this word, it's nice and easy. Just drop the ve/s and add a _d_:
 
 | Past Tense |          |
 | ---------- | -------- |
@@ -45,6 +46,7 @@ Talking about something you owned in the past? With this word, it's nice and eas
 This word is going to be an important part of your English language abilities. It is the foundation of conversation. You will need it to talk about your family ("I have a brother"), your schedule ("I have class today"), and your tasks ("I have so much homework"). Later, it will become even more important as you use it as a block to build more complex sentences. So, master it now and learn to use it confidently. It will serve you well in the future of your studies.
 
 Examples:
+
 - I have a garden in my backyard. (present tense)
 - I had a garden in my backyard last year, too. (past tense)
 - You have some schoolwork to do.
@@ -66,6 +68,7 @@ Questions
 | Does he have \| Do they have | Did he have \| Did they have |
 | Does she have                | Did she have                 |
 | Does it have                 | Did it have                  |
+
 Negatives
 Present Tense - Negative
 do / does + not + main verb
@@ -83,6 +86,7 @@ Below are examples of how to make the present tense and the past tense negative 
 | eat    | ate      |
 | see    | saw      |
 | be     | was/were |
+
 Today I don't have any work to do (present tense)
 Yesterday I didn't have any work to do (past tense)
 I usually don't eat a big breakfast. (present tense)
@@ -90,7 +94,7 @@ yesterday I didn't eat a big breakfast (past tense)
 I don't see movies very often (present tense)
 I didn't see that movie yet (past tense)
 
-The verb "have" is also used as an auxiliary verb (or you can call it a 
+The verb "have" is also used as an auxiliary verb (or you can call it a
 "helping verb") when making **the present perfect tense.**
 To make the present perfect:
 
