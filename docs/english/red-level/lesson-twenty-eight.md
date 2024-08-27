@@ -1,6 +1,6 @@
 ---
-title: Ls 28. (modal verb) will + be (main verb)
-slug: Ls 28. (modal verb) will + be (main verb)
+title: Ls 28. [modal verb] will + be [main verb]
+slug: Ls 28. [modal verb] will + be [main verb]
 authors:
   - whoisltd
 tags:
@@ -10,7 +10,7 @@ tags:
   - english
 sidebar_position: 28
 ---
-# Lesson 28. (Modal verb) will + be (main verb)
+# Lesson 28. [Modal verb] will + be [main verb]
 
 To make the future tense for the verb "be" just add the model verb "will." Easy.
 

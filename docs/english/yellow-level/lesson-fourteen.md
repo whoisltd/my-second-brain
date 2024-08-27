@@ -1,6 +1,6 @@
 ---
 title: Ls 14. Perfect Modal Verbs - Continuous
-slug: Ls 14. Perfect Modal Verbs = Continuous
+slug: Ls 14. Perfect Modal Verbs - Continuous
 authors:
   - whoisltd
 tags:
@@ -10,6 +10,8 @@ tags:
   - english
 sidebar_position: 14
 ---
+
+## Lesson 14. Perfect Model Verbs - Continuous
 
 could should would my might must + have been ... ing
 

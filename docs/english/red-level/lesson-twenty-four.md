@@ -1,6 +1,6 @@
 ---
-title: Ls 24. (be) used to
-slug: Ls 24. (be) used to
+title: Ls 24. [be] used to
+slug: Ls 24. [be] used to
 authors:
   - whoisltd
 tags:
@@ -10,7 +10,7 @@ tags:
   - english
 sidebar_position: 24
 ---
-## Lesson 24. (be) used to
+## Lesson 24. [be] used to
 
 "(be) used to" indicates that someone has adapted to a new situation. The situation was difficult or strange or awkward in some way, but then every thing was okay. You can also use the verb "get" in place of the verb "be" -- _get used to_
 
