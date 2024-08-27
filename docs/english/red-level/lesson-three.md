@@ -1,6 +1,6 @@
 ---
 title: Ls 3. Do |present tense| and Did |past tense| as Helping Verbs to Make Negative Sentence
-slug: Ls 3. Do |present tense| and Did |past tense| as Helping Verbs to Make Negative Sentence
+slug: Ls 3. Do (present tense) and Did (pas tense) as Helping Verb to Make Negative Sentence
 authors:
   - whoisltd
 tags:

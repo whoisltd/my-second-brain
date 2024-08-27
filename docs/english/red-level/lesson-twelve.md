@@ -1,6 +1,6 @@
 ---
 title: Ls 12. The Future Tense - |be| going to __
-slug: Ls 12. The Future Tense - |be| going to __
+slug: Ls 12. The Future Tense - (be) going to __
 authors:
   - whoisltd
 tags:

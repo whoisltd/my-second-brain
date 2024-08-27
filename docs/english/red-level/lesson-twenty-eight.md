@@ -1,6 +1,6 @@
 ---
 title: Ls 28. |modal verb| will + be |main verb|
-slug: Ls 28. |modal verb| will + be |main verb|
+slug: Ls 28. (modal verb) will + be (main verb)
 authors:
   - whoisltd
 tags:

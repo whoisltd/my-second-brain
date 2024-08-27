@@ -1,6 +1,6 @@
 ---
 title: Ls 24. |be| used to
-slug: Ls 24. |be| used to
+slug: Ls 24. (be) used to
 authors:
   - whoisltd
 tags:
