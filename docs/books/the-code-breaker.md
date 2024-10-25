@@ -19,8 +19,6 @@ Hàng loạt các nghiên cứu, ứng dụng đã được triển khai cùng v
 
 Chỉnh sửa gen mang lại nhiều ứng dụng trong y học. Ví dụ như chữa các loại bệnh như mù lòa bẩm sinh, hồng cầu lưỡi liềm, hay thậm chí ngăn chặn hoàn toàn virus HIV. Tương lai của phương pháp này là rấc sáng lạn. Tuy nhiên vẫn đặt ra lằn ranh rới đạo đức. Ví dụ chuyện gì sẽ sảy ra khi công nghệ này được đưa vào để chỉnh sửa gen của chính con em của chúng ta, thay đổi màu mắt, màu da, tóc, siêu phát triển về chiều cao, cơ bắp, hay thậm chí cả trí tuệ hoặc tệ hơn là tạo ra cả những con người vô cảm bằng phương pháp chỉnh sửa gen. 
 
-Như một lập trình viên cuốn sách tôi đang đọc không phải là về lập trình trên máy tính mà là lập trình sinh học, khả năng lập trình cuộc sống. Chỉnh sửa gen có thể là 1 điều kì diệu đột phá trong y học. Chưa các loại bệnh bẩm sinh, mù lòa hay thậm chí ngăn chặn cả ung thư.
-
 Phần cuối của cuốn sách cũng đề cập nhiều tới những tiến bộ gần đây của nhân loại liên quan đến RNA, gen. Và cũng đã đề cập đến vacxin mRNA. (giải thưởng Nobel hóa học 2024)
 
 Qua đây có một bộ phim từ quá khứ  mà tác giả đã đi trước thời đại miêu tả lại vấn đề này một cách hết sức chân thật. Bộ phim này thậm chí đã ra mắt khi công nghệ này còn chưa khả thi. Recommend: Gattaca (1997) thực sự rất hay nha.
