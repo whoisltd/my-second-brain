@@ -197,11 +197,11 @@ const config = {
             items: [
               {
                 label: 'Instagram',
-                href: 'https://instagram.com/who_is.ltd/',
+                href: 'https://instagram.com/whoisltd/',
               },
               {
-                label: 'Facebook',
-                href: 'https://facebook.com/whoisltd',
+                label: 'Threads',
+                href: 'https://www.threads.com/@whoisltd',
               },
               {
                 label: 'Goodreads',
