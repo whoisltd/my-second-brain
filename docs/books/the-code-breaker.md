@@ -2,11 +2,12 @@
 title: The Code Breaker
 slug: The Code Breaker
 authors:
-  - whoisltd
+  [whoisltd]
 tags:
-  - books
-  - knowledge
+  [books, science]
 ---
+
+## The Code Breaker
 
 Cuốn sách với nhân vật chính là Jennifer Doudna. Một nhà sinh hóa người Mỹ, lớn lên trong niềm đam về tìm tòi học hỏi với thế giới xung quanh. Vượt qua định kiến là con gái sẽ không thể làm được khoa học, bà trở thành một nhân vật quan trọng với nhiều khám phá quan trọng trong lĩnh vực sinh, hóa và y học. 
 

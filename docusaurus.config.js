@@ -1,8 +1,8 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
 
-import {themes as prismThemes} from 'prism-react-renderer';
-
+import { themes as prismThemes } from 'prism-react-renderer';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -11,21 +11,89 @@ const config = {
   url: 'https://whoisltd.me',
   baseUrl: '/',
   onBrokenLinks: 'ignore',
-  onBrokenMarkdownLinks: 'ignore',
   favicon: 'img/brain.ico',
 
+  markdown: {
+    mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'ignore',
+    },
+  },
+
   // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'whoisltd', // Usually your GitHub org/user name.
-  projectName: 'my-second-brain', // Usually your repo name.
-  deploymentBranch: 'gh-pages', // Branch that GitHub pages deploys from.
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
+  organizationName: 'whoisltd',
+  projectName: 'my-second-brain',
+  deploymentBranch: 'gh-pages',
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  // Enable Rspack-based faster builds + v4 future flags
+  future: {
+    v4: true,
+    experimental_faster: true,
+  },
+
+  themes: ['@docusaurus/theme-mermaid'],
+
+  plugins: [
+    [
+      '@docusaurus/plugin-ideal-image',
+      {
+        quality: 70,
+        max: 1030,
+        min: 640,
+        steps: 2,
+        disableInDev: false,
+      },
+    ],
+    [
+      '@docusaurus/plugin-pwa',
+      {
+        debug: false,
+        offlineModeActivationStrategies: [
+          'appInstalled',
+          'standalone',
+          'queryString',
+        ],
+        pwaHead: [
+          {
+            tagName: 'link',
+            rel: 'icon',
+            href: '/img/brain.ico',
+          },
+          {
+            tagName: 'link',
+            rel: 'manifest',
+            href: '/manifest.json',
+          },
+          {
+            tagName: 'meta',
+            name: 'theme-color',
+            content: '#2e8555',
+          },
+          {
+            tagName: 'meta',
+            name: 'apple-mobile-web-app-capable',
+            content: 'yes',
+          },
+          {
+            tagName: 'meta',
+            name: 'apple-mobile-web-app-status-bar-style',
+            content: '#2e8555',
+          },
+          {
+            tagName: 'link',
+            rel: 'apple-touch-icon',
+            href: '/img/brain.ico',
+          },
+        ],
+      },
+    ],
+    'docusaurus-plugin-image-zoom',
+  ],
 
   presets: [
     [
@@ -33,24 +101,26 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
+          sidebarPath: './sidebars.js',
           editUrl:
             'https://github.com/whoisltd/my-second-brain/blob/main/',
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/whoisltd/my-second-brain/blob/main/',
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: './src/css/custom.css',
         },
         gtag: {
-          trackingID: 'G-KZ3HD5HXCE'
+          trackingID: 'G-KZ3HD5HXCE',
         },
         sitemap: {
           changefreq: 'weekly',
@@ -62,10 +132,33 @@ const config = {
     ],
   ],
 
+  // KaTeX stylesheet for math rendering
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css',
+      type: 'text/css',
+      crossorigin: 'anonymous',
+    },
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      metadata: [{name: 'keywords', content: 'everything-i-know, whoisltd, blog'}],
+      // Mermaid diagram config
+      mermaid: {
+        theme: { light: 'neutral', dark: 'dark' },
+      },
+      // Image zoom plugin config
+      zoom: {
+        selector: '.markdown :not(em) > img',
+        background: {
+          light: 'rgb(255, 255, 255)',
+          dark: 'rgb(50, 50, 50)',
+        },
+      },
+      metadata: [
+        { name: 'keywords', content: 'everything-i-know, whoisltd, blog' },
+      ],
       navbar: {
         title: 'My Second Brain',
         logo: {
@@ -137,26 +230,14 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
       algolia: {
-        // The application ID provided by Algolia
         appId: 'ZEOE50O63M',
-  
-        // Public API key: it is safe to commit it
         apiKey: '568a4ca9d77faef37c00d7018ca2bffc',
-  
         indexName: 'whoisltd',
-  
-        // Optional: see doc section below
         contextualSearch: true,
-  
-        // Optional: Algolia search parameters
         searchParameters: {},
-  
-        // Optional: path for search page that enabled by default (`false` to disable it)
         searchPagePath: 'search',
-  
-        //... other Algolia params
       },
     }),
 };
 
-module.exports = config;
+export default config;
