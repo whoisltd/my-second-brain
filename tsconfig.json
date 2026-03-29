@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "strict": false,
+    "noEmit": true,
+    "types": ["@docusaurus/module-type-aliases", "@docusaurus/types"],
+    "paths": {
+      "@docusaurus/*": ["node_modules/@docusaurus/*"],
+      "@site/*": ["./*"]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "docusaurus.config.js",
+    "sidebars.js"
+  ]
+}
