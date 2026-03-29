@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_second_brain=self.webpackChunkmy_second_brain||[]).push([["8521"],{28131(e){e.exports=JSON.parse('{"tag":{"label":"fiction","permalink":"/docs/tags/fiction","allTagsPath":"/docs/tags","count":1,"items":[{"id":"books/wonder","title":"Wonder","description":"Wonder","permalink":"/docs/books/Wonder"}],"unlisted":false}}')}}]);

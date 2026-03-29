@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_second_brain=self.webpackChunkmy_second_brain||[]).push([["8416"],{56600(e){e.exports=JSON.parse('{"authors":[{"name":"Dat Le","title":"Maintainer of My Second Brain","url":"https://linktr.ee/whoisltd","imageURL":"https://github.com/whoisltd.png","key":"whoisltd","page":null,"count":2}]}')}}]);

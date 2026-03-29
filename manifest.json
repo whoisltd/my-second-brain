@@ -1,0 +1,17 @@
+{
+  "name": "My Second Brain",
+  "short_name": "SecondBrain",
+  "theme_color": "#2e8555",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "img/brain.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
