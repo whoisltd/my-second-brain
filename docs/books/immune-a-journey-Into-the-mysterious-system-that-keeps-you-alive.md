@@ -14,7 +14,7 @@ Miễn dịch - Philipp Dettmer
 Cuốn sách giải thích một cách đơn giản, dễ hiểu nhất mà tôi từng đọc về hệ miễn dịch ( Good visualizations, good explanations)
 Yeh, đây là cuốn sách cuối cùng trong năm nay về hành trình tìm hiểu thế giới sinh hoá, thế giới vi mô kì diệu bên ngoài, và sâu bên trong cơ thể con người (thực ra còn một list khá dài nhưng tôi sẽ để dành nó cho năm sau).
 
-![alt text](https://instagram.fhan14-2.fna.fbcdn.net/v/t51.82787-15/587728534_17929490559119520_1269700815606303987_n.jpg?stp=dst-jpegr_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InRocmVhZHMuRkVFRC5pbWFnZV91cmxnZW4uMTUzNngyMDQwLmhkci5mODI3ODcuZGVmYXVsdF9pbWFnZS5jMiJ9&_nc_ht=instagram.fhan14-2.fna.fbcdn.net&_nc_cat=100&_nc_oc=Q6cZ2gG5ieYqrYukkSxPJZwIg1iqwZbW8JDyzrtXg_DA6Rk5PIhm3aUZ_7Noucg4xhIFuQMoF0vjkUAR6RuFx2010K-M&_nc_ohc=Lf-aArwy_XoQ7kNvwE_G8YA&_nc_gid=dVB-GOsjPR7XA0hEqMigPw&edm=AKr904kBAAAA&ccb=7-5&ig_cache_key=Mzc3MTU4NjQ5NjMzMjUwNTkwMA%3D%3D.3-ccb7-5&oh=00_AfxCnMjQuEa_UecNPGYrVBLmdXu6vtrk7-nQZ77r3wZVgw&oe=69CF2FBF&_nc_sid=23467f)
+![alt text](images/immune-i.png)
 
 Nhắc đến hệ miễn dịch thì điều đầu tiên tôi nhớ lại là những kiến thức sinh học được học xuyên suốt những năm trung học của tôi. Lục lại kí ức chắc tôi chỉ nhớ đến được cái tên "bạch cầu" thứ bảo vệ con người khỏi các tác nhân gây bệnh như vi khuẩn, virus,... bla bla. À, với tôi thì có lẽ nhiêu đó thôi là đủ với 1 thằng nhỏ ngốc nghếch, ham chơi khi đó ròi. Chỉ là giờ đây tôi muốn tìm hiểu nhiều hơn thôi =))
 

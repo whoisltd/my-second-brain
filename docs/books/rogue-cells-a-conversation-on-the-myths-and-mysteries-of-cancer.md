@@ -8,7 +8,7 @@ tags: [books, biology, medicine, science]
 ## Rogue Cells: A Conversation on the Myths and Mysteries of Cancer
 
 
-![alt text](https://instagram.fhan14-2.fna.fbcdn.net/v/t51.82787-15/560478385_17924226603119520_8079700399315624399_n.jpg?stp=cp6_dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InRocmVhZHMuQ0FST1VTRUxfSVRFTS5pbWFnZV91cmxnZW4uMTQ0MHgxOTEyLnNkci5mODI3ODcuZGVmYXVsdF9pbWFnZS5jMiJ9&_nc_ht=instagram.fhan14-2.fna.fbcdn.net&_nc_cat=100&_nc_oc=Q6cZ2gHT1SEJbWz8ZdCG1Np29TLOMUXoy01QFTv8VP-76d6Rn567vJo81B80WQPhtiC3ia2LP53y6cCH26E0jMVnyeUk&_nc_ohc=uHwTP7WJJJQQ7kNvwEt-UKn&_nc_gid=ZRx-9wi-_HUfJqkhiosjeA&edm=ALvRx_oBAAAA&ccb=7-5&ig_cache_key=MzczNjgwMTM0ODI5MDU2MTkyNw%3D%3D.3-ccb7-5&oh=00_AfyxX8HbAVOcguOqn6gp_k6fDsqLDIeHUsHmc85EPaa-Yw&oe=69CF128D&_nc_sid=ecb15b)
+![alt text](images/rogue-cells.png)
 
 
 Tế bào nổi loạn - Richard J. Jones & T. Michael McCormick

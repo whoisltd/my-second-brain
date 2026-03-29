@@ -14,7 +14,7 @@ Okay, hôm nay tôi sẽ review cuốn sách mới nhất mà tôi đọc
 Chà đây là một cuốn sách khá nhẹ nhàng, câu chuyện xoay quanh cậu bé August với khuôn mặt biến dạng bẩm sinh do gen di truyền hiếm gặp. Do đó, cậu được bố mẹ dạy học tại nhà suốt những năm đầu tiên.
 Câu truyện thực sự bắt đầu khi bố mẹ Auggie quyết định đã đến lúc cậu cần hòa nhập thế giới bên ngoài. Vậy nên Auggie đã được đăng ký vào lớp 5 tại một trường tiểu học địa phương.
 
-![alt text](https://instagram.fhan14-2.fna.fbcdn.net/v/t51.2885-15/490364830_17903307837119520_78375426788126519_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InRocmVhZHMuRkVFRC5pbWFnZV91cmxnZW4uNjAzeDgzMC5zZHIuZjc1NzYxLmRlZmF1bHRfaW1hZ2UuYzIifQ&_nc_ht=instagram.fhan14-2.fna.fbcdn.net&_nc_cat=100&_nc_oc=Q6cZ2gHVequAvNCFCxqfHwGR3KYact7ASklU0zTp9gc_rdq2P4T2a2zKhJNzS0i2Rd4vYyMR27g-ZTktIU7LxkBBxRwZ&_nc_ohc=Yj00vkY8UmwQ7kNvwFb6j1c&_nc_gid=LD729Xuec8GrWHoayBGvbw&edm=AKr904kBAAAA&ccb=7-5&ig_cache_key=MzYxMzUxNTMwNzk5MTA0OTY1Mg%3D%3D.3-ccb7-5&oh=00_AfyoM3cT3kMTZMxJDNe6hW-9QyJX_e3x3RcFI2pFVaehrg&oe=69CF3022&_nc_sid=23467f)
+![alt text](images/wonder-imag.png)
 
 Điểm độc đáo ở tác phẩm ở chỗ tác giả không chỉ kể câu chuyện qua góc nhìn của Auggie, để người đọc cảm nhận những cảm xúc tò mò, vui vẻ, tức giận, những suy nghĩ cậu về sự phán xét của mọi người, mà còn thông qua góc nhìn của người thân xung quanh cậu bé giúp người đọc thực sự hiểu sâu sắc hơn về cậu và cảm xúc cậu đem lại cho họ. 
 

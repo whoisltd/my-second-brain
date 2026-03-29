@@ -9,7 +9,9 @@ tags:
   - economy
 ---
 
-![alt text](https://instagram.fhan14-3.fna.fbcdn.net/v/t51.2885-15/474476732_18382719055109499_9214355149301225803_n.webp?efg=eyJ2ZW5jb2RlX3RhZyI6InRocmVhZHMuQ0FST1VTRUxfSVRFTS5pbWFnZV91cmxnZW4uMzAyNHgzMDI2LnNkci5mNzU3NjEuZGVmYXVsdF9pbWFnZS5jMiJ9&_nc_ht=instagram.fhan14-3.fna.fbcdn.net&_nc_cat=103&_nc_oc=Q6cZ2gEs3VKV4s_5i8oPzbpyBOUOUPjT1C_7WFGX_pRgu2iXILzo6NYVmtFXe24BmqR-O7d_VfHrpsNfUKqZYW179Xdg&_nc_ohc=Nc4_hxPHkiQQ7kNvwFiteSY&_nc_gid=kRF82HJIN8y0YPLRaYmInQ&edm=AKr904kBAAAA&ccb=7-5&ig_cache_key=MzU0OTA1ODM1NjcwOTU0NzY1MA%3D%3D.3-ccb7-5&oh=00_Afz-lwLOP0_IFMFJRtsvCRo91O9ChdSZ_7wHNBINFoYPIw&oe=69CF232D&_nc_sid=23467f)
+## Naked Economics
+
+![alt text](images/naked-economics.png)
 
 Mặc dù chưa đọc xong nhưng mình vẫn muốn viết 1 chút review về cuốn sách này vì nó rất hay.
 Đây là 1 cuốn sách naked, dành cho nhưng người còn mông lung về kinh tế học hay đơn giản hơn là chưa biết gì về nó. 
