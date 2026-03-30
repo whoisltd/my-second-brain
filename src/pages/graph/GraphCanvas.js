@@ -67,7 +67,7 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
       context.scale(dpr, dpr);
       
       simulation.force('center', d3.forceCenter(newWidth / 2, newHeight / 2));
-      simulation.alpha(0.3).restart();
+      simulation.alpha(0.1).restart(); // Lower alpha restart for smoother transition
     };
 
     window.addEventListener('resize', handleResize);
