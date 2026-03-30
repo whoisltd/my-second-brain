@@ -12,12 +12,24 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
   const { graphData, adjacencyList } = useMemo(() => {
     if (!data) return { graphData: { nodes: [], links: [] }, adjacencyList: new Map() };
     
-    const nodes = data.nodes.map(n => ({ ...n }));
-    const links = data.links.map(l => ({ ...l }));
+    // Filter out category and folder nodes - only keep tags and blog posts
+    const filteredNodes = data.nodes.filter(n => 
+      n.group !== 'category' && n.group !== 'Uncategorized'
+    ).map(n => ({ ...n }));
+    
+    const nodeIds = new Set(filteredNodes.map(n => n.id));
+    
+    // Filter links to only include those between remaining nodes
+    const filteredLinks = data.links.filter(l => {
+      const s = typeof l.source === 'object' ? l.source.id : l.source;
+      const t = typeof l.target === 'object' ? l.target.id : l.target;
+      return nodeIds.has(s) && nodeIds.has(t);
+    }).map(l => ({ ...l }));
+
     const adj = new Map();
     const degreeMap = new Map();
 
-    links.forEach(l => {
+    filteredLinks.forEach(l => {
       const s = typeof l.source === 'object' ? l.source.id : l.source;
       const t = typeof l.target === 'object' ? l.target.id : l.target;
       
@@ -30,17 +42,18 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
       adj.get(t).add(s);
     });
     
-    nodes.forEach(n => {
+    filteredNodes.forEach(n => {
       n.degree = degreeMap.get(n.id) || 1;
     });
     
-    return { graphData: { nodes, links }, adjacencyList: adj };
+    return { graphData: { nodes: filteredNodes, links: filteredLinks }, adjacencyList: adj };
   }, [data]);
 
   const radiusScale = useMemo(() => {
-    if (!graphData.nodes.length) return d3.scaleLog();
-    const maxDegree = Math.max(1, ...graphData.nodes.map(n => n.degree || 1));
-    return d3.scaleLog().domain([1, maxDegree]).range([3, 12]);
+    const tagNodes = graphData.nodes.filter(n => n.group === 'tags');
+    if (!tagNodes.length) return () => 6;
+    const maxDegree = Math.max(1, ...tagNodes.map(n => n.degree || 1));
+    return d3.scaleLog().domain([1, maxDegree]).range([4, 12]);
   }, [graphData]);
 
   const lowerSearchTerm = useMemo(() => searchTerm?.toLowerCase(), [searchTerm]);
@@ -73,18 +86,20 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
   useEffect(() => {
     if (!fgRef.current) return;
     
-    // Un-blob clusters: Higher repulsion, looser links
-    fgRef.current.d3Force('charge').strength(-250);
-    fgRef.current.d3Force('link').distance(50).strength(0.3);
+    // Pull clusters together: Moderate repulsion, short tight links
+    fgRef.current.d3Force('charge').strength(-150);
+    fgRef.current.d3Force('link').distance(30).strength(1.0);
     
-    // Stabilize layout: Global centering and strict collision
+    // Strong global gravity to bring clusters together
+    fgRef.current.d3Force('x', d3.forceX().strength(0.1));
+    fgRef.current.d3Force('y', d3.forceY().strength(0.1));
+    
     fgRef.current.d3Force('center', d3.forceCenter());
-    fgRef.current.d3Force('collide', d3.forceCollide(8));
+    fgRef.current.d3Force('collide', d3.forceCollide(10));
     
-    // Center the graph on load after simulation settles
     const timer = setTimeout(() => {
       if (fgRef.current) {
-        fgRef.current.zoomToFit(400, 50);
+        fgRef.current.zoomToFit(400, 100);
       }
     }, 1500);
 
@@ -96,8 +111,8 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
 
   const paintNode = (node, ctx, globalScale) => {
     const isDark = document.documentElement.dataset.theme === 'dark';
-    const isHub = node.group === 'category' || node.group === 'tags';
-    const radius = isHub ? (node.group === 'category' ? 12 : 6) : radiusScale(node.degree);
+    const isTag = node.group === 'tags';
+    const radius = isTag ? radiusScale(node.degree) : 3.5; // Small fixed size for blogs
     
     const isHighlighted = highlightNodes.has(node.id);
     const isMatched = lowerSearchTerm && node.name.toLowerCase().includes(lowerSearchTerm);
@@ -108,7 +123,7 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     if (hoverNode) {
       alpha = isHighlighted ? 1.0 : 0.15;
     } else if (hasSearch) {
-      alpha = isMatched ? 1.0 : 0.05; // Very aggressive fade for non-matches
+      alpha = isMatched ? 1.0 : 0.05;
     }
     ctx.globalAlpha = alpha;
 
@@ -124,13 +139,13 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     // Node Circle
     ctx.beginPath();
     ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI, false);
-    ctx.fillStyle = (node === hoverNode || (isHighlighted && hoverNode)) ? PURPLE : (isHub ? HUB_GREEN : (isDark ? '#888888' : '#444444'));
+    ctx.fillStyle = (node === hoverNode || (isHighlighted && hoverNode)) ? PURPLE : (isTag ? HUB_GREEN : (isDark ? '#888888' : '#444444'));
     ctx.fill();
 
     // Labels (Semantic Zooming)
     const label = node.name;
     const fontSize = 12 / globalScale;
-    const showLabel = isHub || (isHighlighted && hoverNode) || isMatched || globalScale > 2.5;
+    const showLabel = isTag || (isHighlighted && hoverNode) || isMatched || globalScale > 2.5;
     
     if (showLabel) {
       ctx.font = `${fontSize}px Inter, sans-serif`;
@@ -138,9 +153,9 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
       ctx.textBaseline = 'top';
       ctx.fillStyle = isDark ? '#ddd' : '#333';
       
-      const labelOpacity = (isHub || (isHighlighted && hoverNode) || isMatched) 
+      const labelOpacity = (isTag || (isHighlighted && hoverNode) || isMatched) 
         ? 1 
-        : Math.min(1, (globalScale - 2.5) * 2); // Sharper fade in at high zoom
+        : Math.min(1, (globalScale - 2.5) * 2);
         
       ctx.globalAlpha = alpha * labelOpacity;
       if (ctx.globalAlpha > 0.1) {
