@@ -56,11 +56,12 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     context.scale(dpr, dpr);
 
     const simulation = d3.forceSimulation(nodes)
-      .velocityDecay(0.3) // Lower for smoother motion
-      .force('link', d3.forceLink(links).id(d => d.id).distance(100).strength(0.5))
-      .force('charge', d3.forceManyBody().strength(-200)) // Repulsion
-      .force('center', d3.forceCenter(width / 2, height / 2))
-      .force('collide', d3.forceCollide().radius(d => getRadius(d) + 5).iterations(2)); // Padding
+      .velocityDecay(0.3)
+      .force('link', d3.forceLink(links).id(d => d.id).distance(40).strength(0.7)) // Reduced from 100
+      .force('charge', d3.forceManyBody().strength(-150)) // Slightly weaker repulsion
+      .force('x', d3.forceX(width / 2).strength(0.05)) // New: Centering force X
+      .force('y', d3.forceY(height / 2).strength(0.05)) // New: Centering force Y
+      .force('collide', d3.forceCollide().radius(d => getRadius(d) + 5).iterations(2));
 
     const handleResize = () => {
       const newWidth = containerRef.current.clientWidth;
@@ -72,7 +73,8 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
       canvas.style.height = `${newHeight}px`;
       context.scale(dpr, dpr);
       
-      simulation.force('center', d3.forceCenter(newWidth / 2, newHeight / 2));
+      simulation.force('x', d3.forceX(newWidth / 2).strength(0.05));
+      simulation.force('y', d3.forceY(newHeight / 2).strength(0.05));
       simulation.alpha(0.1).restart(); // Lower alpha restart for smoother transition
     };
 
