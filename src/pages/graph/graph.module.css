@@ -33,10 +33,10 @@
   top: 20px;
   right: 20px;
   width: 250px;
-  background: rgba(var(--ifm-background-surface-color-rgb), 0.7);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(var(--ifm-background-surface-color-rgb), 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(var(--ifm-color-emphasis-300-rgb), 0.2);
   border-radius: 8px;
   padding: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -44,15 +44,17 @@
 }
 
 :global([data-theme='dark']) .controlPanel {
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(20, 20, 20, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .searchBar {
   width: 100%;
   padding: 8px 12px;
-  border: 1px solid var(--ifm-color-emphasis-300);
+  border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: 4px;
-  background: var(--ifm-background-color);
+  background: var(--ifm-background-surface-color);
   color: var(--ifm-font-color-base);
   margin-bottom: 15px;
 }
