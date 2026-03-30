@@ -55,6 +55,13 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     setHighlightLinks(new Set(highlightLinks));
   };
 
+  useEffect(() => {
+    if (!fgRef.current) return;
+    // Tighten physics for compactness
+    fgRef.current.d3Force('link').distance(40).strength(0.7);
+    fgRef.current.d3Force('charge').strength(-150);
+  }, [graphData]); // Re-run if graphData changes to ensure forces are applied
+
   const PURPLE = '#a855f7';
   const HUB_GREEN = '#2ecc71';
 
@@ -66,6 +73,17 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     const isHighlighted = highlightNodes.has(node.id);
     const alpha = hoverNode && !isHighlighted ? 0.15 : 1;
     ctx.globalAlpha = alpha;
+
+    // Search term highlighting
+    const isMatched = searchTerm && node.name.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    if (isMatched) {
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, radius + 2, 0, 2 * Math.PI, false);
+      ctx.strokeStyle = isDark ? '#fff' : '#000';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
 
     // Node Circle
     ctx.beginPath();
