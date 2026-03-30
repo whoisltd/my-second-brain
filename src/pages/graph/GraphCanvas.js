@@ -4,27 +4,37 @@ import * as d3 from 'd3';
 
 export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
   const fgRef = useRef();
-  
-  // Pre-process data
-  const graphData = useMemo(() => {
-    if (!data) return { nodes: [], links: [] };
+  const [hoverNode, setHoverNode] = useState(null);
+  const [highlightNodes, setHighlightNodes] = useState(new Set());
+  const [highlightLinks, setHighlightLinks] = useState(new Set());
+
+  // Pre-process data and build adjacency list for O(1) neighbor lookup
+  const { graphData, adjacencyList } = useMemo(() => {
+    if (!data) return { graphData: { nodes: [], links: [] }, adjacencyList: new Map() };
     
     const nodes = data.nodes.map(n => ({ ...n }));
     const links = data.links.map(l => ({ ...l }));
-    
+    const adj = new Map();
     const degreeMap = new Map();
+
     links.forEach(l => {
       const s = typeof l.source === 'object' ? l.source.id : l.source;
       const t = typeof l.target === 'object' ? l.target.id : l.target;
+      
       degreeMap.set(s, (degreeMap.get(s) || 0) + 1);
       degreeMap.set(t, (degreeMap.get(t) || 0) + 1);
+
+      if (!adj.has(s)) adj.set(s, new Set());
+      if (!adj.has(t)) adj.set(t, new Set());
+      adj.get(s).add(t);
+      adj.get(t).add(s);
     });
     
     nodes.forEach(n => {
       n.degree = degreeMap.get(n.id) || 1;
     });
     
-    return { nodes, links };
+    return { graphData: { nodes, links }, adjacencyList: adj };
   }, [data]);
 
   const radiusScale = useMemo(() => {
@@ -33,26 +43,31 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     return d3.scaleLog().domain([1, maxDegree]).range([3, 12]);
   }, [graphData]);
 
-  const [hoverNode, setHoverNode] = useState(null);
-  const [highlightNodes, setHighlightNodes] = useState(new Set());
-  const [highlightLinks, setHighlightLinks] = useState(new Set());
+  const lowerSearchTerm = useMemo(() => searchTerm?.toLowerCase(), [searchTerm]);
 
   const handleNodeHover = node => {
-    highlightNodes.clear();
-    highlightLinks.clear();
+    const hNodes = new Set();
+    const hLinks = new Set();
+
     if (node) {
-      highlightNodes.add(node.id);
+      hNodes.add(node.id);
+      const neighbors = adjacencyList.get(node.id);
+      if (neighbors) {
+        neighbors.forEach(neighborId => hNodes.add(neighborId));
+      }
+      
       graphData.links.forEach(link => {
-        if (link.source.id === node.id || link.target.id === node.id) {
-          highlightNodes.add(link.source.id);
-          highlightNodes.add(link.target.id);
-          highlightLinks.add(link);
+        const s = typeof link.source === 'object' ? link.source.id : link.source;
+        const t = typeof link.target === 'object' ? link.target.id : link.target;
+        if (s === node.id || t === node.id) {
+          hLinks.add(link);
         }
       });
     }
-    setHoverNode(node || null);
-    setHighlightNodes(new Set(highlightNodes));
-    setHighlightLinks(new Set(highlightLinks));
+
+    setHoverNode(node);
+    setHighlightNodes(hNodes);
+    setHighlightLinks(hLinks);
   };
 
   useEffect(() => {
@@ -60,7 +75,7 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     // Tighten physics for compactness
     fgRef.current.d3Force('link').distance(40).strength(0.7);
     fgRef.current.d3Force('charge').strength(-150);
-  }, [graphData]); // Re-run if graphData changes to ensure forces are applied
+  }, [graphData]);
 
   const PURPLE = '#a855f7';
   const HUB_GREEN = '#2ecc71';
@@ -71,17 +86,17 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     const radius = isHub ? (node.group === 'category' ? 12 : 6) : radiusScale(node.degree);
     
     const isHighlighted = highlightNodes.has(node.id);
+    const isMatched = lowerSearchTerm && node.name.toLowerCase().includes(lowerSearchTerm);
     const alpha = hoverNode && !isHighlighted ? 0.15 : 1;
+    
     ctx.globalAlpha = alpha;
 
-    // Search term highlighting
-    const isMatched = searchTerm && node.name.toLowerCase().includes(searchTerm.toLowerCase());
-    
+    // Search term highlighting stroke
     if (isMatched) {
       ctx.beginPath();
-      ctx.arc(node.x, node.y, radius + 2, 0, 2 * Math.PI, false);
+      ctx.arc(node.x, node.y, radius + 3, 0, 2 * Math.PI, false);
       ctx.strokeStyle = isDark ? '#fff' : '#000';
-      ctx.lineWidth = 2;
+      ctx.lineWidth = 2 / globalScale;
       ctx.stroke();
     }
 
@@ -94,14 +109,16 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     // Labels (Semantic Zooming)
     const label = node.name;
     const fontSize = 12 / globalScale;
-    if (globalScale > 0.8 || isHub || (isHighlighted && hoverNode)) {
+    const showLabel = globalScale > 0.8 || isHub || (isHighlighted && hoverNode) || isMatched;
+    
+    if (showLabel) {
       ctx.font = `${fontSize}px Inter, sans-serif`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'top';
       ctx.fillStyle = isDark ? '#ddd' : '#333';
       
-      const opacity = (isHub || (isHighlighted && hoverNode)) ? 1 : Math.min(1, (globalScale - 0.8) * 4);
-      ctx.globalAlpha = alpha * opacity;
+      const labelOpacity = (isHub || (isHighlighted && hoverNode) || isMatched) ? 1 : Math.min(1, (globalScale - 0.8) * 4);
+      ctx.globalAlpha = alpha * labelOpacity;
       if (ctx.globalAlpha > 0.1) {
         ctx.fillText(label, node.x, node.y + radius + 2);
       }
