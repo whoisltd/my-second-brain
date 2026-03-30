@@ -91,8 +91,15 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     
     const isHighlighted = highlightNodes.has(node.id);
     const isMatched = lowerSearchTerm && node.name.toLowerCase().includes(lowerSearchTerm);
-    const alpha = hoverNode && !isHighlighted ? 0.15 : 1;
-    
+    const hasSearch = lowerSearchTerm && lowerSearchTerm.length > 0;
+
+    // Stronger fade for search
+    let alpha = 1.0;
+    if (hoverNode) {
+      alpha = isHighlighted ? 1.0 : 0.15;
+    } else if (hasSearch) {
+      alpha = isMatched ? 1.0 : 0.05; // Very aggressive fade for non-matches
+    }
     ctx.globalAlpha = alpha;
 
     // Search term highlighting stroke

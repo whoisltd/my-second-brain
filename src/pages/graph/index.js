@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import Layout from '@theme/Layout';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import GraphCanvas from './GraphCanvas';
@@ -16,6 +16,12 @@ export default function GraphView() {
       .then(setData)
       .catch(err => console.error("Error loading graph data", err));
   }, [dataUrl]);
+
+  const groups = useMemo(() => {
+    if (!data) return [];
+    const uniqueGroups = Array.from(new Set(data.nodes.map(n => n.group)));
+    return uniqueGroups.filter(g => g !== 'category' && g !== 'tags');
+  }, [data]);
 
   return (
     <Layout title="Knowledge Graph" description="Interactive graph view of my second brain">
@@ -40,10 +46,14 @@ export default function GraphView() {
                 className={styles.searchBar}
               />
               <div className={styles.legend}>
-                <h4>Legend</h4>
+                <h4>Groups</h4>
                 <ul>
-                  <li><span className={styles.legendColor} style={{background: '#444444'}}></span> Documents</li>
-                  <li><span className={styles.legendColor} style={{background: '#2ecc71'}}></span> Hubs (Categories/Tags)</li>
+                  {groups.map(group => (
+                    <li key={group}>
+                      <span className={styles.legendColor} style={{background: '#444444'}}></span> {group}
+                    </li>
+                  ))}
+                  <li><span className={styles.legendColor} style={{background: '#2ecc71'}}></span> Hubs</li>
                 </ul>
               </div>
             </div>
