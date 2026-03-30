@@ -109,7 +109,7 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     // Labels (Semantic Zooming)
     const label = node.name;
     const fontSize = 12 / globalScale;
-    const showLabel = globalScale > 0.8 || isHub || (isHighlighted && hoverNode) || isMatched;
+    const showLabel = isHub || (isHighlighted && hoverNode) || isMatched || globalScale > 2.5;
     
     if (showLabel) {
       ctx.font = `${fontSize}px Inter, sans-serif`;
@@ -117,7 +117,10 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
       ctx.textBaseline = 'top';
       ctx.fillStyle = isDark ? '#ddd' : '#333';
       
-      const labelOpacity = (isHub || (isHighlighted && hoverNode) || isMatched) ? 1 : Math.min(1, (globalScale - 0.8) * 4);
+      const labelOpacity = (isHub || (isHighlighted && hoverNode) || isMatched) 
+        ? 1 
+        : Math.min(1, (globalScale - 2.5) * 2); // Sharper fade in at high zoom
+        
       ctx.globalAlpha = alpha * labelOpacity;
       if (ctx.globalAlpha > 0.1) {
         ctx.fillText(label, node.x, node.y + radius + 2);
