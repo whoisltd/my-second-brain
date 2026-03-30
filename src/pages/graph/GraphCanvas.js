@@ -27,11 +27,50 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     return { nodes, links };
   }, [data]);
 
+  const radiusScale = useMemo(() => {
+    if (!graphData.nodes.length) return d3.scaleLog();
+    const maxDegree = Math.max(1, ...graphData.nodes.map(n => n.degree || 1));
+    return d3.scaleLog().domain([1, maxDegree]).range([3, 12]);
+  }, [graphData]);
+
+  const PURPLE = '#a855f7';
+  const HUB_GREEN = '#2ecc71';
+
+  const paintNode = (node, ctx, globalScale) => {
+    const isDark = document.documentElement.dataset.theme === 'dark';
+    const isHub = node.group === 'category' || node.group === 'tags';
+    const radius = isHub ? (node.group === 'category' ? 12 : 6) : radiusScale(node.degree);
+    
+    // Node Circle
+    ctx.beginPath();
+    ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI, false);
+    ctx.fillStyle = isHub ? HUB_GREEN : (isDark ? '#888888' : '#444444');
+    ctx.fill();
+
+    // Labels (Semantic Zooming)
+    const label = node.name;
+    const fontSize = 12 / globalScale;
+    if (globalScale > 0.8 || isHub) {
+      ctx.font = `${fontSize}px Inter, sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      ctx.fillStyle = isDark ? '#ddd' : '#333';
+      
+      const opacity = isHub ? 1 : Math.min(1, (globalScale - 0.8) * 4);
+      ctx.globalAlpha = opacity;
+      if (opacity > 0.1) {
+        ctx.fillText(label, node.x, node.y + radius + 2);
+      }
+      ctx.globalAlpha = 1;
+    }
+  };
+
   return (
     <div style={{ width: '100%', height: '100%', position: 'absolute' }}>
       <ForceGraph2D
         ref={fgRef}
         graphData={graphData}
+        nodeCanvasObject={paintNode}
         nodeLabel="name"
         onNodeClick={onNodeClick}
       />
