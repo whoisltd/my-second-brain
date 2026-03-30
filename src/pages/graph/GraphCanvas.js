@@ -36,6 +36,22 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
       .force('center', d3.forceCenter(width / 2, height / 2))
       .force('collide', d3.forceCollide().radius(d => getRadius(d) + 12));
 
+    const handleResize = () => {
+      const newWidth = containerRef.current.clientWidth;
+      const newHeight = containerRef.current.clientHeight;
+      
+      canvas.width = newWidth * dpr;
+      canvas.height = newHeight * dpr;
+      canvas.style.width = `${newWidth}px`;
+      canvas.style.height = `${newHeight}px`;
+      context.scale(dpr, dpr);
+      
+      simulation.force('center', d3.forceCenter(newWidth / 2, newHeight / 2));
+      simulation.alpha(0.3).restart();
+    };
+
+    window.addEventListener('resize', handleResize);
+
     let transform = d3.zoomIdentity;
     let hoveredNode = null;
 
@@ -51,7 +67,9 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     }
 
     function draw() {
-      context.clearRect(0, 0, width, height);
+      const currentWidth = canvas.width / dpr;
+      const currentHeight = canvas.height / dpr;
+      context.clearRect(0, 0, currentWidth, currentHeight);
       context.save();
       context.translate(transform.x, transform.y);
       context.scale(transform.k, transform.k);
@@ -105,7 +123,8 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
 
         // Draw labels
         if (shouldShowLabel) {
-          context.globalAlpha = (transform.k < 1.0 && !isHub && !isMatched) ? 0.5 : 1.0;
+          const densityAlpha = (transform.k < 1.0 && !isHub && !isMatched) ? 0.5 : 1.0;
+          context.globalAlpha = targetAlpha * densityAlpha;
           context.fillStyle = isDark ? '#ddd' : '#333';
           context.font = '12px Inter, system-ui, sans-serif';
           context.textAlign = 'center';
@@ -187,6 +206,7 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
 
     return () => {
       simulation.stop();
+      window.removeEventListener('resize', handleResize);
     };
   }, [data, searchTerm, onNodeClick, history]);
 

@@ -42,9 +42,8 @@ export default function GraphView() {
               <div className={styles.legend}>
                 <h4>Legend</h4>
                 <ul>
-                  <li><span className={styles.legendColor} style={{background: '#4a90e2'}}></span> Documents</li>
-                  <li><span className={styles.legendColor} style={{background: '#f39c12'}}></span> Categories</li>
-                  <li><span className={styles.legendColor} style={{background: '#e74c3c'}}></span> Tags</li>
+                  <li><span className={styles.legendColor} style={{background: '#444444'}}></span> Documents</li>
+                  <li><span className={styles.legendColor} style={{background: '#2ecc71'}}></span> Hubs (Categories/Tags)</li>
                 </ul>
               </div>
             </div>
