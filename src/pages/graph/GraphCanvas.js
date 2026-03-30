@@ -6,6 +6,12 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
   const history = useHistory();
+  const searchTermRef = useRef(searchTerm);
+
+  // Update ref when searchTerm changes, but don't re-run the simulation useEffect
+  useEffect(() => {
+    searchTermRef.current = searchTerm;
+  }, [searchTerm]);
 
   useEffect(() => {
     if (!data || !canvasRef.current || !containerRef.current) return;
@@ -74,6 +80,7 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
 
     let transform = d3.zoomIdentity;
     let hoveredNode = null;
+    let neighbors = new Set();
 
     const PURPLE = '#a855f7';
 
@@ -93,6 +100,7 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
 
       const isDark = document.documentElement.dataset.theme === 'dark';
       const linkBaseColor = isDark ? '200, 200, 200' : '100, 100, 100';
+      const currentSearchTerm = searchTermRef.current;
 
       // Draw links
       links.forEach(d => {
@@ -101,23 +109,16 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
         context.beginPath();
         context.moveTo(d.source.x, d.source.y);
         context.lineTo(d.target.x, d.target.y);
-        context.strokeStyle = `rgba(${linkBaseColor}, ${isHighlighted ? 0.6 : 0.1})`;
+        context.strokeStyle = isHighlighted ? PURPLE : `rgba(${linkBaseColor}, 0.1)`;
         context.lineWidth = isHighlighted ? 1.5 : 1;
         context.stroke();
       });
 
       // Draw nodes
       nodes.forEach(d => {
-        const isMatched = searchTerm && d.name.toLowerCase().includes(searchTerm.toLowerCase());
+        const isMatched = currentSearchTerm && d.name.toLowerCase().includes(currentSearchTerm.toLowerCase());
         const isHovered = hoveredNode === d;
-        const isConnected = hoveredNode && (
-          links.some(l => {
-            const s = typeof l.source === 'object' ? l.source.id : l.source;
-            const t = typeof l.target === 'object' ? l.target.id : l.target;
-            const h = typeof hoveredNode === 'object' ? hoveredNode.id : hoveredNode;
-            return (s === h && t === d.id) || (t === h && s === d.id);
-          })
-        );
+        const isConnected = neighbors.has(d.id);
         
         const isHub = d.group === 'category' || d.group === 'tags';
 
@@ -182,6 +183,18 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
       const node = simulation.find(x, y, 20);
       if (node !== hoveredNode) {
         hoveredNode = node;
+        neighbors.clear();
+        
+        if (hoveredNode) {
+          links.forEach(l => {
+            const s = typeof l.source === 'object' ? l.source.id : l.source;
+            const t = typeof l.target === 'object' ? l.target.id : l.target;
+            const h = hoveredNode.id;
+            if (s === h) neighbors.add(t);
+            if (t === h) neighbors.add(s);
+          });
+        }
+        
         draw();
         
         // Update cursor
@@ -235,7 +248,7 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
       simulation.stop();
       window.removeEventListener('resize', handleResize);
     };
-  }, [data, searchTerm, onNodeClick, history]);
+  }, [data, onNodeClick, history]);
 
   return (
     <div ref={containerRef} style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}>
