@@ -72,9 +72,13 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
 
   useEffect(() => {
     if (!fgRef.current) return;
-    // Tighten physics for compactness
-    fgRef.current.d3Force('link').distance(40).strength(0.7);
-    fgRef.current.d3Force('charge').strength(-150);
+    
+    // Un-blob clusters: Higher repulsion, looser links
+    fgRef.current.d3Force('charge').strength(-250); // Increased repulsion
+    fgRef.current.d3Force('link').distance(50).strength(0.3); // Looser links
+    
+    // Center the graph on load
+    fgRef.current.zoomToFit(400, 50);
   }, [graphData]);
 
   const PURPLE = '#a855f7';
