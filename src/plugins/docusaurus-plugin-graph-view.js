@@ -77,6 +77,11 @@ module.exports = function (context, options) {
 
         const docId = `doc:${url}`;
         
+        const summary = parsed.content
+          .replace(/[#*`]/g, '')
+          .trim()
+          .slice(0, 300) + '...';
+
         const node = {
           id: docId,
           title,
@@ -88,7 +93,16 @@ module.exports = function (context, options) {
         };
 
         docNodes.set(docId, node);
-        nodes.push({ id: docId, name: title, group: category, val: 2, url });
+        nodes.push({ 
+          id: docId, 
+          name: title, 
+          group: category, 
+          val: 2, 
+          url,
+          type: 'doc',
+          tags,
+          summary
+        });
 
         tags.forEach(tag => {
           const tagId = `tag:${tag}`;
