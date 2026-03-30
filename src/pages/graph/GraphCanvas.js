@@ -29,18 +29,16 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     context.scale(dpr, dpr);
 
     const simulation = d3.forceSimulation(nodes)
-      .velocityDecay(0.15)
+      .velocityDecay(0.4)
       .alphaDecay(0.01)
       .force('link', d3.forceLink(links).id(d => d.id).distance(90))
-      .force('charge', d3.forceManyBody().strength(-200))
+      .force('charge', d3.forceManyBody().strength(-300))
       .force('center', d3.forceCenter(width / 2, height / 2))
       .force('collide', d3.forceCollide().radius(d => getRadius(d) + 12));
 
     let transform = d3.zoomIdentity;
     let hoveredNode = null;
 
-    const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
-    
     function getRadius(d) {
       if (d.group === 'category') return 12;
       if (d.group === 'tags') return 6;
@@ -48,10 +46,8 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     }
 
     function getColor(d) {
-      if (d.group === 'category') return '#f39c12';
-      if (d.group === 'tags') return '#e74c3c';
-      // if it's a doc, let's use the category string for color scaling, but make sure it differs from default ones
-      return colorScale(d.group);
+      const isHub = d.group === 'category' || d.group === 'tags';
+      return isHub ? '#2ecc71' : '#444444';
     }
 
     function draw() {
@@ -67,18 +63,9 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
       links.forEach(d => {
         const isHighlighted = hoveredNode && (d.source === hoveredNode || d.target === hoveredNode);
         
-        // Calculate control point for organic curve
-        // Using mid-point for quadratic curve to create organic "constellation" lines
-        const midX = (d.source.x + d.target.x) / 2;
-        const midY = (d.source.y + d.target.y) / 2;
-        
-        // Subtle bend towards the center of the canvas for organic feel
-        const controlX = midX + (width / 2 - midX) * 0.08;
-        const controlY = midY + (height / 2 - midY) * 0.08;
-
         context.beginPath();
         context.moveTo(d.source.x, d.source.y);
-        context.quadraticCurveTo(controlX, controlY, d.target.x, d.target.y);
+        context.lineTo(d.target.x, d.target.y);
         context.strokeStyle = `rgba(${linkBaseColor}, ${isHighlighted ? 0.6 : 0.1})`;
         context.lineWidth = isHighlighted ? 1.5 : 1;
         context.stroke();
@@ -91,6 +78,8 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
         const isConnected = hoveredNode && (
           links.some(l => (l.source === hoveredNode && l.target === d) || (l.target === hoveredNode && l.source === d))
         );
+        const isHub = d.group === 'category' || d.group === 'tags';
+        const shouldShowLabel = isHub || isHovered || isConnected || isMatched || (transform.k > 1.0) || (d.index % 2 === 0);
 
         // Spotlight effect
         let targetAlpha = 1.0;
@@ -101,11 +90,7 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
         context.beginPath();
         context.arc(d.x, d.y, getRadius(d), 0, 2 * Math.PI);
         
-        // Ensure doc colors don't conflict with category/tag fixed colors
         let color = getColor(d);
-        if (d.group !== 'category' && d.group !== 'tags' && (color === '#f39c12' || color === '#e74c3c')) {
-           color = '#4a90e2';
-        }
 
         context.fillStyle = color;
         context.globalAlpha = targetAlpha;
@@ -119,7 +104,8 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
         context.fill();
 
         // Draw labels
-        if (isMatched || isHovered || isConnected || d.group === 'category' || transform.k > 1.5) {
+        if (shouldShowLabel) {
+          context.globalAlpha = (transform.k < 1.0 && !isHub && !isMatched) ? 0.5 : 1.0;
           context.fillStyle = isDark ? '#ddd' : '#333';
           context.font = '12px Inter, system-ui, sans-serif';
           context.textAlign = 'center';
@@ -165,6 +151,17 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
       const node = simulation.find(x, y, 20);
       if (node && onNodeClick) {
         onNodeClick(node);
+      }
+    });
+
+    d3.select(canvas).on('dblclick', (event) => {
+      const [mouseX, mouseY] = d3.pointer(event);
+      const x = (mouseX - transform.x) / transform.k;
+      const y = (mouseY - transform.y) / transform.k;
+      
+      const node = simulation.find(x, y, 20);
+      if (node && node.url) {
+        history.push(node.url);
       }
     });
 
