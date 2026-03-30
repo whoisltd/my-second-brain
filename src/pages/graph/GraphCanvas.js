@@ -235,15 +235,29 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
         if (!event.active) simulation.alphaTarget(0.3).restart();
         event.subject.fx = event.subject.x;
         event.subject.fy = event.subject.y;
+        
+        // Set as hovered node for highlighting during drag
+        hoveredNode = event.subject;
+        neighbors.clear();
+        links.forEach(l => {
+          const s = typeof l.source === 'object' ? l.source.id : l.source;
+          const t = typeof l.target === 'object' ? l.target.id : l.target;
+          if (s === hoveredNode.id) neighbors.add(t);
+          if (t === hoveredNode.id) neighbors.add(s);
+        });
       })
       .on('drag', (event) => {
         event.subject.fx = event.x;
         event.subject.fy = event.y;
+        // draw() is called by simulation tick automatically
       })
       .on('end', (event) => {
         if (!event.active) simulation.alphaTarget(0);
         event.subject.fx = null;
         event.subject.fy = null;
+        
+        // Clear hover state after drag unless mouse is still over it
+        // For now, let mousemove handle the next update
       }));
 
     return () => {
