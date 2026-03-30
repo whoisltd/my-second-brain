@@ -50,12 +50,11 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     context.scale(dpr, dpr);
 
     const simulation = d3.forceSimulation(nodes)
-      .velocityDecay(0.4)
-      .alphaDecay(0.01)
-      .force('link', d3.forceLink(links).id(d => d.id).distance(90))
-      .force('charge', d3.forceManyBody().strength(-300))
+      .velocityDecay(0.3) // Lower for smoother motion
+      .force('link', d3.forceLink(links).id(d => d.id).distance(100).strength(0.5))
+      .force('charge', d3.forceManyBody().strength(-200)) // Repulsion
       .force('center', d3.forceCenter(width / 2, height / 2))
-      .force('collide', d3.forceCollide().radius(d => getRadius(d) + 12));
+      .force('collide', d3.forceCollide().radius(d => getRadius(d) + 5).iterations(2)); // Padding
 
     const handleResize = () => {
       const newWidth = containerRef.current.clientWidth;
