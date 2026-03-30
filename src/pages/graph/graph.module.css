@@ -1,7 +1,20 @@
+.explorerContainer {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+}
+
+.graphWrapper {
+  flex: 1;
+  position: relative;
+  height: 100%;
+}
+
 .graphContainer {
   position: relative;
   width: 100%;
-  height: calc(100vh - 60px);
+  height: 100%;
   overflow: hidden;
   background-color: var(--ifm-background-color);
 }
@@ -76,4 +89,79 @@
   height: 12px;
   border-radius: 50%;
   margin-right: 8px;
+}
+
+.sideDock {
+  width: 350px;
+  height: 100%;
+  background: rgba(var(--ifm-background-surface-color-rgb), 0.85);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  border-left: 1px solid rgba(var(--ifm-color-emphasis-300-rgb), 0.2);
+  padding: 2rem 1.5rem;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--ifm-color-emphasis-600);
+  line-height: 1;
+}
+
+.closeBtn:hover {
+  color: var(--ifm-color-primary);
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tag {
+  background: rgba(var(--ifm-color-primary-rgb), 0.1);
+  color: var(--ifm-color-primary);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.summary {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-800);
+  margin-bottom: 2rem;
+}
+
+.readMore {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: var(--ifm-color-primary);
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.readMore:hover {
+  background: var(--ifm-color-primary-dark);
+  color: white;
+  text-decoration: none;
 }

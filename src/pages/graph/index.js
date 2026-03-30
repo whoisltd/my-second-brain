@@ -7,6 +7,7 @@ import styles from './graph.module.css';
 export default function GraphView() {
   const [data, setData] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedNode, setSelectedNode] = useState(null);
   const dataUrl = useBaseUrl('/graph-data.json');
 
   useEffect(() => {
@@ -18,29 +19,60 @@ export default function GraphView() {
 
   return (
     <Layout title="Knowledge Graph" description="Interactive graph view of my second brain">
-      <div className={styles.graphContainer}>
-        {data ? (
-          <GraphCanvas data={data} searchTerm={searchTerm} />
-        ) : (
-          <div className={styles.loading}>Loading graph...</div>
-        )}
-        <div className={styles.controlPanel}>
-          <input 
-            type="text" 
-            placeholder="Search nodes..." 
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className={styles.searchBar}
-          />
-          <div className={styles.legend}>
-            <h4>Legend</h4>
-            <ul>
-              <li><span className={styles.legendColor} style={{background: '#4a90e2'}}></span> Documents</li>
-              <li><span className={styles.legendColor} style={{background: '#f39c12'}}></span> Categories</li>
-              <li><span className={styles.legendColor} style={{background: '#e74c3c'}}></span> Tags</li>
-            </ul>
+      <div className={styles.explorerContainer}>
+        <div className={styles.graphWrapper}>
+          <div className={styles.graphContainer}>
+            {data ? (
+              <GraphCanvas 
+                data={data} 
+                searchTerm={searchTerm} 
+                onNodeClick={setSelectedNode}
+              />
+            ) : (
+              <div className={styles.loading}>Loading graph...</div>
+            )}
+            <div className={styles.controlPanel}>
+              <input 
+                type="text" 
+                placeholder="Search nodes..." 
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className={styles.searchBar}
+              />
+              <div className={styles.legend}>
+                <h4>Legend</h4>
+                <ul>
+                  <li><span className={styles.legendColor} style={{background: '#4a90e2'}}></span> Documents</li>
+                  <li><span className={styles.legendColor} style={{background: '#f39c12'}}></span> Categories</li>
+                  <li><span className={styles.legendColor} style={{background: '#e74c3c'}}></span> Tags</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
+
+        {selectedNode && (
+          <div className={styles.sideDock}>
+            <button 
+              className={styles.closeBtn} 
+              onClick={() => setSelectedNode(null)}
+            >
+              ×
+            </button>
+            <h2>{selectedNode.name}</h2>
+            <div className={styles.tagList}>
+              {selectedNode.tags && selectedNode.tags.map(tag => (
+                <span key={tag} className={styles.tag}>{tag}</span>
+              ))}
+            </div>
+            <p className={styles.summary}>{selectedNode.summary}</p>
+            {selectedNode.url && (
+              <a href={selectedNode.url} className={styles.readMore}>
+                Read Full Page →
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </Layout>
   );

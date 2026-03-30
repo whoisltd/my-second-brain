@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import { useHistory } from '@docusaurus/router';
 
-export default function GraphCanvas({ data, searchTerm }) {
+export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
   const history = useHistory();
@@ -163,8 +163,8 @@ export default function GraphCanvas({ data, searchTerm }) {
       const y = (mouseY - transform.y) / transform.k;
       
       const node = simulation.find(x, y, 20);
-      if (node && node.url) {
-        history.push(node.url);
+      if (node && onNodeClick) {
+        onNodeClick(node);
       }
     });
 
@@ -191,7 +191,7 @@ export default function GraphCanvas({ data, searchTerm }) {
     return () => {
       simulation.stop();
     };
-  }, [data, searchTerm, history]);
+  }, [data, searchTerm, onNodeClick, history]);
 
   return (
     <div ref={containerRef} style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}>
