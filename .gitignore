@@ -19,5 +19,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Generated Graph Data
+static/graph-data.json
+
 #customer folder
 /docs/.obsidian
