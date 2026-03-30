@@ -75,9 +75,12 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     let transform = d3.zoomIdentity;
     let hoveredNode = null;
 
-    function getColor(d) {
-      const isHub = d.group === 'category' || d.group === 'tags';
-      return isHub ? '#2ecc71' : '#444444';
+    const PURPLE = '#a855f7';
+
+    function getColor(d, isDark) {
+      if (d.group === 'category') return '#2ecc71'; // Hub Green
+      if (d.group === 'tags') return '#2ecc71'; 
+      return isDark ? '#888888' : '#444444'; // Default Node
     }
 
     function draw() {
@@ -108,24 +111,27 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
         const isMatched = searchTerm && d.name.toLowerCase().includes(searchTerm.toLowerCase());
         const isHovered = hoveredNode === d;
         const isConnected = hoveredNode && (
-          links.some(l => (l.source === hoveredNode && l.target === d) || (l.target === hoveredNode && l.source === d))
+          links.some(l => {
+            const s = typeof l.source === 'object' ? l.source.id : l.source;
+            const t = typeof l.target === 'object' ? l.target.id : l.target;
+            const h = typeof hoveredNode === 'object' ? hoveredNode.id : hoveredNode;
+            return (s === h && t === d.id) || (t === h && s === d.id);
+          })
         );
+        
         const isHub = d.group === 'category' || d.group === 'tags';
         const shouldShowLabel = isHub || isHovered || isConnected || isMatched || (transform.k > 1.0) || (d.index % 2 === 0);
 
-        // Spotlight effect
-        let targetAlpha = 1.0;
+        let alpha = 1.0;
         if (hoveredNode && !isHovered && !isConnected && !isMatched) {
-          targetAlpha = 0.1;
+          alpha = 0.15; // Global background fade
         }
 
         context.beginPath();
         context.arc(d.x, d.y, getRadius(d), 0, 2 * Math.PI);
         
-        let color = getColor(d);
-
-        context.fillStyle = color;
-        context.globalAlpha = targetAlpha;
+        context.globalAlpha = alpha;
+        context.fillStyle = isHovered || (isConnected && alpha === 1.0) ? PURPLE : getColor(d, isDark);
         
         if (isMatched) {
           context.lineWidth = 3;
@@ -138,7 +144,7 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
         // Draw labels
         if (shouldShowLabel) {
           const densityAlpha = (transform.k < 1.0 && !isHub && !isMatched) ? 0.5 : 1.0;
-          context.globalAlpha = targetAlpha * densityAlpha;
+          context.globalAlpha = alpha * densityAlpha;
           context.fillStyle = isDark ? '#ddd' : '#333';
           context.font = '12px Inter, system-ui, sans-serif';
           context.textAlign = 'center';
