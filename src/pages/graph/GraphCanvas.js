@@ -74,11 +74,21 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     if (!fgRef.current) return;
     
     // Un-blob clusters: Higher repulsion, looser links
-    fgRef.current.d3Force('charge').strength(-250); // Increased repulsion
-    fgRef.current.d3Force('link').distance(50).strength(0.3); // Looser links
+    fgRef.current.d3Force('charge').strength(-250);
+    fgRef.current.d3Force('link').distance(50).strength(0.3);
     
-    // Center the graph on load
-    fgRef.current.zoomToFit(400, 50);
+    // Stabilize layout: Global centering and strict collision
+    fgRef.current.d3Force('center', d3.forceCenter());
+    fgRef.current.d3Force('collide', d3.forceCollide(8));
+    
+    // Center the graph on load after simulation settles
+    const timer = setTimeout(() => {
+      if (fgRef.current) {
+        fgRef.current.zoomToFit(400, 50);
+      }
+    }, 1500);
+
+    return () => clearTimeout(timer);
   }, [graphData]);
 
   const PURPLE = '#a855f7';
