@@ -17,6 +17,27 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     const nodes = data.nodes.map(d => ({ ...d }));
     const links = data.links.map(d => ({ ...d }));
 
+    const degreeMap = new Map();
+    links.forEach(l => {
+      const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
+      const targetId = typeof l.target === 'object' ? l.target.id : l.target;
+      degreeMap.set(sourceId, (degreeMap.get(sourceId) || 0) + 1);
+      degreeMap.set(targetId, (degreeMap.get(targetId) || 0) + 1);
+    });
+    nodes.forEach(n => {
+      n.degree = degreeMap.get(n.id) || 1;
+    });
+
+    const radiusScale = d3.scaleLog()
+      .domain([1, Math.max(1, ...nodes.map(n => n.degree))])
+      .range([4, 16]);
+
+    function getRadius(d) {
+      if (d.group === 'category') return 14; // Larger hubs
+      if (d.group === 'tags') return 6;
+      return radiusScale(d.degree);
+    }
+
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
     
@@ -54,12 +75,6 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
 
     let transform = d3.zoomIdentity;
     let hoveredNode = null;
-
-    function getRadius(d) {
-      if (d.group === 'category') return 12;
-      if (d.group === 'tags') return 6;
-      return 8; // doc
-    }
 
     function getColor(d) {
       const isHub = d.group === 'category' || d.group === 'tags';
