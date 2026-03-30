@@ -8,7 +8,6 @@ tags:
   - learn
   - language
   - english
-  - apache-spark
 sidebar_position: 4
 ---
 

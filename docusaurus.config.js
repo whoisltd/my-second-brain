@@ -39,6 +39,7 @@ const config = {
   themes: ['@docusaurus/theme-mermaid'],
 
   plugins: [
+    './src/plugins/docusaurus-plugin-graph-view.js',
     [
       '@docusaurus/plugin-ideal-image',
       {
@@ -166,6 +167,7 @@ const config = {
           src: 'img/brain.svg',
         },
         items: [
+          { to: '/graph', label: '🕸️ Graph', position: 'left' },
           {
             type: 'doc',
             docId: 'intro',

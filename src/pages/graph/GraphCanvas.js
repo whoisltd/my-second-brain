@@ -66,9 +66,19 @@ export default function GraphCanvas({ data, searchTerm }) {
       // Draw links
       links.forEach(d => {
         const isHighlighted = hoveredNode && (d.source === hoveredNode || d.target === hoveredNode);
+        
+        // Calculate control point for organic curve
+        // Using mid-point for quadratic curve to create organic "constellation" lines
+        const midX = (d.source.x + d.target.x) / 2;
+        const midY = (d.source.y + d.target.y) / 2;
+        
+        // Subtle bend towards the center of the canvas for organic feel
+        const controlX = midX + (width / 2 - midX) * 0.08;
+        const controlY = midY + (height / 2 - midY) * 0.08;
+
         context.beginPath();
         context.moveTo(d.source.x, d.source.y);
-        context.lineTo(d.target.x, d.target.y);
+        context.quadraticCurveTo(controlX, controlY, d.target.x, d.target.y);
         context.strokeStyle = `rgba(${linkBaseColor}, ${isHighlighted ? 0.6 : 0.1})`;
         context.lineWidth = isHighlighted ? 1.5 : 1;
         context.stroke();

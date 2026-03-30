@@ -1,0 +1,47 @@
+import React, { useEffect, useState } from 'react';
+import Layout from '@theme/Layout';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import GraphCanvas from './GraphCanvas';
+import styles from './graph.module.css';
+
+export default function GraphView() {
+  const [data, setData] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const dataUrl = useBaseUrl('/graph-data.json');
+
+  useEffect(() => {
+    fetch(dataUrl)
+      .then(res => res.json())
+      .then(setData)
+      .catch(err => console.error("Error loading graph data", err));
+  }, [dataUrl]);
+
+  return (
+    <Layout title="Knowledge Graph" description="Interactive graph view of my second brain">
+      <div className={styles.graphContainer}>
+        {data ? (
+          <GraphCanvas data={data} searchTerm={searchTerm} />
+        ) : (
+          <div className={styles.loading}>Loading graph...</div>
+        )}
+        <div className={styles.controlPanel}>
+          <input 
+            type="text" 
+            placeholder="Search nodes..." 
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className={styles.searchBar}
+          />
+          <div className={styles.legend}>
+            <h4>Legend</h4>
+            <ul>
+              <li><span className={styles.legendColor} style={{background: '#4a90e2'}}></span> Documents</li>
+              <li><span className={styles.legendColor} style={{background: '#f39c12'}}></span> Categories</li>
+              <li><span className={styles.legendColor} style={{background: '#e74c3c'}}></span> Tags</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </Layout>
+  );
+}
