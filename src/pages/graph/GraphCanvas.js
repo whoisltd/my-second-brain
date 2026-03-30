@@ -120,7 +120,6 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
         );
         
         const isHub = d.group === 'category' || d.group === 'tags';
-        const shouldShowLabel = isHub || isHovered || isConnected || isMatched || (transform.k > 1.0) || (d.index % 2 === 0);
 
         let alpha = 1.0;
         if (hoveredNode && !isHovered && !isConnected && !isMatched) {
@@ -141,14 +140,22 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
         
         context.fill();
 
-        // Draw labels
-        if (shouldShowLabel) {
-          const densityAlpha = (transform.k < 1.0 && !isHub && !isMatched) ? 0.5 : 1.0;
-          context.globalAlpha = alpha * densityAlpha;
+        // Semantic Zooming for Labels
+        const zoomK = transform.k;
+        let labelOpacity = 0;
+
+        if (isHovered || isConnected || isMatched || isHub) {
+          labelOpacity = 1; // Always show for these
+        } else if (zoomK > 0.5) {
+          labelOpacity = Math.min(1, (zoomK - 0.5) * 1.5); // Fade in linearly
+        }
+
+        if (labelOpacity > 0.05) {
+          context.globalAlpha = alpha * labelOpacity;
           context.fillStyle = isDark ? '#ddd' : '#333';
-          context.font = '12px Inter, system-ui, sans-serif';
+          context.font = '10px Inter, system-ui, sans-serif';
           context.textAlign = 'center';
-          context.fillText(d.name, d.x, d.y + getRadius(d) + 14);
+          context.fillText(d.name, d.x, d.y + getRadius(d) + 12);
         }
       });
 
