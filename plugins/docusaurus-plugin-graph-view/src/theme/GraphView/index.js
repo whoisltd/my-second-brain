@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import Layout from '@theme/Layout';
 import BrowserOnly from '@docusaurus/BrowserOnly';
-import { useGlobalData } from '@docusaurus/useGlobalData';
+import useGlobalData from '@docusaurus/useGlobalData';
 import GraphCanvas from '../GraphCanvas';
 import styles from './styles.module.css';
 
