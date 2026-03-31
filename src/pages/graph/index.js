@@ -6,16 +6,24 @@ import styles from './graph.module.css';
 
 export default function GraphView() {
   const [data, setData] = useState(null);
+  const [docLinks, setDocLinks] = useState({});
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedNode, setSelectedNode] = useState(null);
+  
   const dataUrl = useBaseUrl('/graph-data.json');
+  const linksUrl = useBaseUrl('/doc-links.json');
 
   useEffect(() => {
     fetch(dataUrl)
       .then(res => res.json())
       .then(setData)
       .catch(err => console.error("Error loading graph data", err));
-  }, [dataUrl]);
+      
+    fetch(linksUrl)
+      .then(res => res.json())
+      .then(setDocLinks)
+      .catch(err => console.error("Error loading doc links", err));
+  }, [dataUrl, linksUrl]);
 
   const groups = useMemo(() => {
     if (!data) return [];
@@ -57,15 +65,20 @@ export default function GraphView() {
     );
   }, [selectedNode, data]);
 
-  // Fix URL construction based on group and name
+  // Fix URL construction based on the pre-generated mapping
   const getDocUrl = (node) => {
     if (!node || node.group === 'tags') return null;
-    // Pattern: /docs/[group]/[name]
+    
+    // Check mapping first (most accurate)
+    if (docLinks[node.name]) return docLinks[node.name];
+    
+    // Fallback logic
     const groupPath = node.group === 'Uncategorized' ? '' : `${node.group}/`;
     return `/docs/${groupPath}${node.name}`;
   };
 
-  const selectedNodeUrl = useBaseUrl(getDocUrl(selectedNode) || '');
+  const resolvedPath = getDocUrl(selectedNode);
+  const selectedNodeUrl = useBaseUrl(resolvedPath || '');
 
   return (
     <Layout title="Knowledge Graph" description="Interactive graph view of my second brain">
