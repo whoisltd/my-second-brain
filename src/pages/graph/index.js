@@ -57,6 +57,14 @@ export default function GraphView() {
     );
   }, [selectedNode, data]);
 
+  // Fix URL construction based on group and name
+  const getDocUrl = (node) => {
+    if (!node || node.group === 'tags') return null;
+    // Pattern: /docs/[group]/[name]
+    const groupPath = node.group === 'Uncategorized' ? '' : `${node.group}/`;
+    return useBaseUrl(`/docs/${groupPath}${node.name}`);
+  };
+
   return (
     <Layout title="Knowledge Graph" description="Interactive graph view of my second brain">
       <div className={styles.explorerContainer}>
@@ -116,7 +124,7 @@ export default function GraphView() {
                       <span className={styles.legendColor} style={{background: '#444444'}}></span> {group}
                     </li>
                   ))}
-                  <li><span className={styles.legendColor} style={{background: '#2ecc71'}}></span> Hubs (Tags)</li>
+                  <li><span className={styles.legendColor} style={{background: '#2ecc71'}}></span> Hubs</li>
                 </ul>
               </div>
             </div>
@@ -162,13 +170,15 @@ export default function GraphView() {
             {selectedNode.summary && (
               <div className={styles.summarySection}>
                 <h3>Preview</h3>
-                <p className={styles.summary}>{selectedNode.summary}</p>
+                <div className={styles.summaryContent}>
+                  {selectedNode.summary}
+                </div>
               </div>
             )}
             
-            {selectedNode.url && (
+            {selectedNode.group !== 'tags' && (
               <div className={styles.actionSection}>
-                <a href={selectedNode.url} className={styles.readMore}>
+                <a href={getDocUrl(selectedNode)} className={styles.readMore}>
                   Read Full Page →
                 </a>
               </div>

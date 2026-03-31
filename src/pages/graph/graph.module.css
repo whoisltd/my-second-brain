@@ -200,6 +200,16 @@
   letter-spacing: 0.5px;
 }
 
+.summaryContent {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ifm-font-color-base);
+  white-space: pre-wrap;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
 .actionSection {
   margin-top: 2rem;
   padding-top: 1.5rem;
