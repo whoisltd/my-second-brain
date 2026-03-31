@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo, useRef } from 'react';
 import Layout from '@theme/Layout';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import GraphCanvas from './GraphCanvas';
@@ -39,9 +39,9 @@ export default function GraphView() {
     };
   }, [data, searchTerm]);
 
-  // Find linked documents for the selected tag
+  // Find linked documents for the selected node
   const linkedDocs = useMemo(() => {
-    if (!selectedNode || !data || selectedNode.group !== 'tags') return [];
+    if (!selectedNode || !data) return [];
     const nodeIds = new Set();
     data.links.forEach(l => {
       const s = typeof l.source === 'object' ? l.source.id : l.source;
@@ -49,7 +49,12 @@ export default function GraphView() {
       if (s === selectedNode.id) nodeIds.add(t);
       if (t === selectedNode.id) nodeIds.add(s);
     });
-    return data.nodes.filter(n => nodeIds.has(n.id) && n.group !== 'tags' && n.group !== 'category');
+    // If it's a tag, show notes. If it's a note, show tags.
+    return data.nodes.filter(n => 
+      nodeIds.has(n.id) && 
+      n.group !== 'category' && 
+      (selectedNode.group === 'tags' ? n.group !== 'tags' : n.group === 'tags')
+    );
   }, [selectedNode, data]);
 
   return (
@@ -84,7 +89,7 @@ export default function GraphView() {
                         <div className={styles.resultLabel}>Tags</div>
                         {searchResults.tags.slice(0, 5).map(tag => (
                           <div key={tag.id} className={styles.resultItem} onClick={() => { setSelectedNode(tag); setSearchTerm(''); }}>
-                            # {tag.name}
+                            # {tag.name.replace('#', '')}
                           </div>
                         ))}
                       </div>
@@ -111,7 +116,7 @@ export default function GraphView() {
                       <span className={styles.legendColor} style={{background: '#444444'}}></span> {group}
                     </li>
                   ))}
-                  <li><span className={styles.legendColor} style={{background: '#2ecc71'}}></span> Hubs</li>
+                  <li><span className={styles.legendColor} style={{background: '#2ecc71'}}></span> Hubs (Tags)</li>
                 </ul>
               </div>
             </div>
@@ -129,7 +134,9 @@ export default function GraphView() {
             <div className={styles.nodeType}>
               {selectedNode.group === 'tags' ? 'TAG' : 'DOCUMENT'}
             </div>
-            <h2>{selectedNode.group === 'tags' ? `#${selectedNode.name}` : selectedNode.name}</h2>
+            <h2 className={styles.nodeTitle}>
+              {selectedNode.group === 'tags' ? selectedNode.name : selectedNode.name}
+            </h2>
             
             {selectedNode.group === 'tags' && linkedDocs.length > 0 && (
               <div className={styles.connectionSection}>
@@ -137,25 +144,34 @@ export default function GraphView() {
                 <ul className={styles.linkedList}>
                   {linkedDocs.map(doc => (
                     <li key={doc.id} onClick={() => setSelectedNode(doc)} className={styles.linkedItem}>
-                      {doc.name}
+                      📄 {doc.name}
                     </li>
                   ))}
                 </ul>
               </div>
             )}
 
-            <div className={styles.tagList}>
-              {selectedNode.tags && selectedNode.tags.map(tag => (
-                <span key={tag} className={styles.tag}>{tag}</span>
-              ))}
-            </div>
+            {selectedNode.group !== 'tags' && (
+              <div className={styles.tagList}>
+                {selectedNode.tags && selectedNode.tags.map(tag => (
+                  <span key={tag} className={styles.tag}>#{tag}</span>
+                ))}
+              </div>
+            )}
             
-            <p className={styles.summary}>{selectedNode.summary}</p>
+            {selectedNode.summary && (
+              <div className={styles.summarySection}>
+                <h3>Preview</h3>
+                <p className={styles.summary}>{selectedNode.summary}</p>
+              </div>
+            )}
             
             {selectedNode.url && (
-              <a href={useBaseUrl(selectedNode.url)} className={styles.readMore}>
-                Read Full Page →
-              </a>
+              <div className={styles.actionSection}>
+                <a href={selectedNode.url} className={styles.readMore}>
+                  Read Full Page →
+                </a>
+              </div>
             )}
           </div>
         )}

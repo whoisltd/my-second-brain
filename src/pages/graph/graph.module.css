@@ -183,6 +183,29 @@
   margin-bottom: 0.5rem;
 }
 
+.nodeTitle {
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.summarySection {
+  margin-top: 2rem;
+}
+
+.summarySection h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.actionSection {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(var(--ifm-color-emphasis-300-rgb), 0.2);
+}
+
 .connectionSection {
   margin: 1.5rem 0;
   padding: 1rem;
