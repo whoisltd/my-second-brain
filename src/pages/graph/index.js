@@ -132,14 +132,10 @@ export default function GraphView() {
               </div>
 
               <div className={styles.legend}>
-                <h4>Groups</h4>
+                <h4>Legend</h4>
                 <ul>
-                  {groups.map(group => (
-                    <li key={group}>
-                      <span className={styles.legendColor} style={{background: '#444444'}}></span> {group}
-                    </li>
-                  ))}
-                  <li><span className={styles.legendColor} style={{background: '#2ecc71'}}></span> Hubs</li>
+                  <li><span className={styles.legendColor} style={{background: '#444444'}}></span> Documents</li>
+                  <li><span className={styles.legendColor} style={{background: '#2ecc71'}}></span> Tags</li>
                 </ul>
               </div>
             </div>
