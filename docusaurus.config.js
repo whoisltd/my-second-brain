@@ -39,7 +39,13 @@ const config = {
   themes: ['@docusaurus/theme-mermaid'],
 
   plugins: [
-    './src/plugins/docusaurus-plugin-graph-view.js',
+    [
+      './plugins/docusaurus-plugin-graph-view',
+      {
+        paths: ['docs'], // You can add 'blog' here if you want to include it later
+        routePath: '/graph',
+      }
+    ],
     [
       '@docusaurus/plugin-ideal-image',
       {
