@@ -49,7 +49,7 @@ export default function GraphView() {
 
   const getDocUrl = (node) => {
     if (!node || node.group === 'tags') return null;
-    return docLinks[node.name] || null;
+    return node.url || docLinks[node.name] || null;
   };
 
   const selectedNodeUrl = getDocUrl(selectedNode);

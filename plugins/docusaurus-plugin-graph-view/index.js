@@ -57,8 +57,11 @@ module.exports = function (context, options) {
             route = `/${p}${folderPart}/${slug}`.replace(/\\/g, '/');
           }
           
-          // Clean up route
+          // Clean up route and ensure trailing slash
           route = route.replace(/\/index$/, '');
+          if (!route.endsWith('/')) {
+            route = `${route}/`;
+          }
           
           const docId = `doc:${route}`;
           const nodeTitle = data.title || slug.split('/').pop();
