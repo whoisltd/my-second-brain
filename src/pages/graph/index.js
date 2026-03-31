@@ -62,8 +62,10 @@ export default function GraphView() {
     if (!node || node.group === 'tags') return null;
     // Pattern: /docs/[group]/[name]
     const groupPath = node.group === 'Uncategorized' ? '' : `${node.group}/`;
-    return useBaseUrl(`/docs/${groupPath}${node.name}`);
+    return `/docs/${groupPath}${node.name}`;
   };
+
+  const selectedNodeUrl = useBaseUrl(getDocUrl(selectedNode) || '');
 
   return (
     <Layout title="Knowledge Graph" description="Interactive graph view of my second brain">
@@ -178,7 +180,7 @@ export default function GraphView() {
             
             {selectedNode.group !== 'tags' && (
               <div className={styles.actionSection}>
-                <a href={getDocUrl(selectedNode)} className={styles.readMore}>
+                <a href={selectedNodeUrl} className={styles.readMore}>
                   Read Full Page →
                 </a>
               </div>
