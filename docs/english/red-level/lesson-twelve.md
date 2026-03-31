@@ -1,5 +1,5 @@
 ---
-title: Ls 12. The Future Tense - |be| going to __
+title: Ls 12. The Future Tense - be going to __
 slug: Ls 12. The Future Tense - (be) going to __
 authors:
   - whoisltd
@@ -11,7 +11,7 @@ tags:
 sidebar_position: 12
 ---
 
-## Lesson 12. The Future Tense - |be| going to \_\_
+## Lesson 12. The Future Tense - (be) going to \_\_
 
 | Singular              | Plural                 |
 | --------------------- | ---------------------- |
