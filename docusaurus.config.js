@@ -40,7 +40,7 @@ const config = {
 
   plugins: [
     [
-      './plugins/docusaurus-plugin-graph-view',
+      'docusaurus-plugin-graph-view',
       {
         paths: ['docs'], // You can add 'blog' here if you want to include it later
         routePath: '/graph',
