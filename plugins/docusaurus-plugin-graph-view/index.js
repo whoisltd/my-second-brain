@@ -42,11 +42,23 @@ module.exports = function (context, options) {
           const content = fs.readFileSync(file, 'utf8');
           const { data, content: markdown } = grayMatter(content);
           
-          // Determine URL
+          // Determine URL: Preserve directory structure even if slug is present
           const relativePath = path.relative(fullPath, file);
-          const slug = data.slug || relativePath.replace(/\.(md|mdx)$/, '').replace(/\\/g, '/');
-          // For English nested levels, ensure the group part is correct
-          const route = `/${p}/${slug}`.replace(/\/index$/, '');
+          const dirName = path.dirname(relativePath);
+          const baseName = path.basename(relativePath).replace(/\.(md|mdx)$/, '');
+          
+          const slug = data.slug || baseName;
+          
+          let route;
+          if (slug.startsWith('/')) {
+            route = slug;
+          } else {
+            const folderPart = dirName === '.' ? '' : `/${dirName}`;
+            route = `/${p}${folderPart}/${slug}`.replace(/\\/g, '/');
+          }
+          
+          // Clean up route
+          route = route.replace(/\/index$/, '');
           
           const docId = `doc:${route}`;
           const nodeTitle = data.title || slug.split('/').pop();
