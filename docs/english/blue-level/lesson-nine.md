@@ -1,6 +1,6 @@
 ---
-slug: "Ls 9. Have (present tense)"
-title: "Ls 9. Have (present tense)"
+slug: "Ls 9. Have in present tense"
+title: "Ls 9. Have in present tense"
 authors: [whoisltd]
 tags: [myself, learn, english, language]
 sidebar_position: 11
