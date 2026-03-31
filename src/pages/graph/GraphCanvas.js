@@ -95,7 +95,7 @@ export default function GraphCanvas({ data, searchTerm, onNodeClick }) {
     fgRef.current.d3Force('y', d3.forceY().strength(0.1));
     
     fgRef.current.d3Force('center', d3.forceCenter());
-    fgRef.current.d3Force('collide', d3.forceCollide(10));
+    fgRef.current.d3Force('collide', d3.forceCollide(d => (d.group === 'tags' ? radiusScale(d.degree) : 3.5) + 6));
     
     const timer = setTimeout(() => {
       if (fgRef.current) {
