@@ -1,0 +1,7 @@
+{
+    "label": "AI Infrastructure",
+    "link": {
+        "type": "generated-index",
+        "description": "What I know about running AI systems in production — Kubernetes, GPU serving, auto-scaling, and enterprise AI platform design."
+    }
+}
